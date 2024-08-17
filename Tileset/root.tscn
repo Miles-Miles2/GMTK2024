@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://goebov0jswmq"]
+[gd_scene load_steps=5 format=3 uid="uid://goebov0jswmq"]
 
 [ext_resource type="PackedScene" uid="uid://dhgatk0xaee0v" path="res://player.tscn" id="1_gyjny"]
 [ext_resource type="TileSet" uid="uid://cvybiv4kqocla" path="res://Tileset/pico8.tres" id="2_nw3ex"]
 [ext_resource type="Script" path="res://Scripts/CameraMove.gd" id="3_locxl"]
+[ext_resource type="PackedScene" uid="uid://bwktujbfadlfs" path="res://slime copy.tscn" id="4_atw7s"]
 
 [node name="Root" type="Node2D"]
 
@@ -20,3 +21,6 @@ zoom = Vector2(2.875, 2.875)
 position_smoothing_enabled = true
 script = ExtResource("3_locxl")
 player = NodePath("../Player")
+
+[node name="Slime" parent="." instance=ExtResource("4_atw7s")]
+position = Vector2(93, -216)
