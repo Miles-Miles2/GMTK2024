@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var ray_cast_right = $enemyBody2D/RayCastRight
 @onready var ray_cast_left = $enemyBody2D/RayCastLeft
-@onready var slime = $enemyBody2D/Sprite2D
+@onready var slime = $enemyBody2D/AnimatedSprite2D
 @onready var body = $enemyBody2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -18,7 +18,7 @@ var direction = 1
 
 func _ready():
 	timer.start()
-	#slime.play("spawn")
+	#slime.play("idle")
 	
 func _on_timer_timeout():
 	#slime.play("idle")
@@ -31,12 +31,12 @@ func _process(delta):
 	
 	if ray_cast_right.is_colliding():
 		direction = -1
-		#slime.flip_h = true
+		slime.flip_h = true
 		
 		
 	if ray_cast_left.is_colliding():
 		direction = 1
-		#slime.flip_h = false
+		slime.flip_h = false
 		
 	if start_move:
 		body.velocity.x = (SPEED * delta * direction)
