@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
-#@onready var knight = $AnimatedSprite2D
+@onready var animated_sprite = $AnimatedSprite2D
 @onready var timer = $Timer
 #@onready var animation_player = $AnimationPlayer
 
@@ -28,22 +28,22 @@ func _physics_process(delta):
 	
 	if direction > 0:
 		pass
-		#knight.flip_h = false	
+		animated_sprite.flip_h = false	
 	elif direction < 0:
 		pass
-		#knight.flip_h = true
+		animated_sprite.flip_h = true
 		
 		
 	if is_on_floor():
 		if direction == 0:
 			pass
-			#knight.play("idle")	
+			animated_sprite.play("idle")	
 		else:
 			pass
-			#knight.play("run")
+			#animated_sprite.play("run") (No Running animation in the tileset)
 	else:
 		pass
-		#knight.play("jump")
+		animated_sprite.play("jump")
 		
 	
 	

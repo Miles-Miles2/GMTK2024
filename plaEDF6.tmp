@@ -1,46 +1,21 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhgatk0xaee0v"]
+[gd_scene load_steps=10 format=3 uid="uid://dhgatk0xaee0v"]
 
 [ext_resource type="Script" path="res://Scripts/player copy.gd" id="1_4gsat"]
+[ext_resource type="Texture2D" uid="uid://bcgi5luaobjb" path="res://Assets/tempChar.png" id="2_coio2"]
 [ext_resource type="Texture2D" uid="uid://cg40v0qsasp1a" path="res://Tileset/tilemap_packed.png" id="2_lybht"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0aolo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn8ry"]
 atlas = ExtResource("2_lybht")
 region = Rect2(8, 56, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oqo8q"]
-atlas = ExtResource("2_lybht")
-region = Rect2(8, 56, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h4gi7"]
-atlas = ExtResource("2_lybht")
-region = Rect2(16, 56, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_trmsk"]
-atlas = ExtResource("2_lybht")
-region = Rect2(24, 56, 8, 8)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ye5og"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_3n8em"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0aolo")
+"texture": SubResource("AtlasTexture_kn8ry")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oqo8q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h4gi7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_trmsk")
-}],
-"loop": true,
-"name": &"jump",
 "speed": 5.0
 }]
 
@@ -90,10 +65,10 @@ collision_layer = 2
 script = ExtResource("1_4gsat")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -5)
-sprite_frames = SubResource("SpriteFrames_ye5og")
-animation = &"jump"
-frame = 1
+visible = false
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_3n8em")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5.5)
@@ -106,5 +81,10 @@ wait_time = 0.7
 libraries = {
 "": SubResource("AnimationLibrary_ess8q")
 }
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -5)
+texture = ExtResource("2_coio2")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
