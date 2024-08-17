@@ -3,9 +3,9 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
-@onready var knight = $AnimatedSprite2D
+#@onready var knight = $AnimatedSprite2D
 @onready var timer = $Timer
-@onready var animation_player = $AnimationPlayer
+#@onready var animation_player = $AnimationPlayer
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -27,22 +27,23 @@ func _physics_process(delta):
 	var direction = Input.get_axis("move_left", "move_right")
 	
 	if direction > 0:
-		knight.flip_h = false
-		
-		
+		pass
+		#knight.flip_h = false	
 	elif direction < 0:
-		knight.flip_h = true
+		pass
+		#knight.flip_h = true
 		
 		
 	if is_on_floor():
-			
 		if direction == 0:
-			knight.play("idle")
-		
+			pass
+			#knight.play("idle")	
 		else:
-			knight.play("run")
+			pass
+			#knight.play("run")
 	else:
-		knight.play("jump")
+		pass
+		#knight.play("jump")
 		
 	
 	

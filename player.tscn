@@ -1,138 +1,105 @@
 [gd_scene load_steps=41 format=3 uid="uid://dhgatk0xaee0v"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_4gsat"]
-[ext_resource type="Texture2D" uid="uid://qwpesqb2vyq0" path="res://Assets/sprites/knight.png" id="1_klpb2"]
+[ext_resource type="Script" path="res://Scripts/player copy.gd" id="1_4gsat"]
+[ext_resource type="Texture2D" uid="uid://bcgi5luaobjb" path="res://Assets/tempChar.png" id="2_coio2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5aa1r"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(0, 192, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ag6nd"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(32, 192, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_74k54"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(64, 192, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pwt8o"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(96, 192, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7b40l"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsrow"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jhx1w"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jpx2m"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_78gkw"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(192, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ml5bu"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(0, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_65c38"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(32, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y7yoc"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(64, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6hbni"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(96, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_di4xx"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(128, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wrv3i"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(160, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jk41g"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(192, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7s84q"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(224, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1a7w0"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kokqv"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nimc1"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dr8qe"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_biksy"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(128, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17iv2"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(160, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8hlq8"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(192, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x1rc2"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(224, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dsp13"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qi6td"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(32, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ac2re"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(64, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gvoxq"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1q8es"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(128, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k0h4i"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(160, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gd7tr"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(192, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tll5w"]
-atlas = ExtResource("1_klpb2")
 region = Rect2(224, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3n8em"]
@@ -263,7 +230,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q57gs"]
-size = Vector2(10, 17)
+size = Vector2(10, 9)
 
 [sub_resource type="Animation" id="Animation_wvi3e"]
 length = 0.001
@@ -276,7 +243,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [1]
 }
 
@@ -292,7 +259,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [1, 2, 3, 4, 5, 6, 7]
 }
 
@@ -308,6 +275,7 @@ collision_layer = 2
 script = ExtResource("1_4gsat")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_3n8em")
 animation = &"roll"
@@ -315,7 +283,7 @@ autoplay = "idle"
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -9.5)
+position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_q57gs")
 
 [node name="Timer" type="Timer" parent="."]
@@ -325,5 +293,10 @@ wait_time = 0.7
 libraries = {
 "": SubResource("AnimationLibrary_ess8q")
 }
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -5)
+texture = ExtResource("2_coio2")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

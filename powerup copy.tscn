@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://kd13pyf1tgj1"]
 
-[ext_resource type="Script" path="res://Scripts/powerup.gd" id="1_0wycg"]
-[ext_resource type="Texture2D" uid="uid://cycjox2s6e41s" path="res://Assets/sprites/fruit.png" id="2_evc0d"]
-[ext_resource type="AudioStream" uid="uid://cptqankafyfrf" path="res://Assets/sounds/power_up.wav" id="3_l8ffr"]
+[ext_resource type="Script" path="res://Scripts/powerup copy.gd" id="1_0wycg"]
+[ext_resource type="Texture2D" path="res://Assets/sprites/fruit.png" id="2_evc0d"]
+[ext_resource type="AudioStream" path="res://Assets/sounds/power_up.wav" id="3_l8ffr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqy6q"]
 atlas = ExtResource("2_evc0d")
