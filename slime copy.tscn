@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bwktujbfadlfs"]
+[gd_scene load_steps=14 format=3 uid="uid://bwktujbfadlfs"]
 
-[ext_resource type="Script" path="res://Scripts/slime.gd" id="1_bqwkd"]
-[ext_resource type="Texture2D" uid="uid://ddd4jjudggtv0" path="res://Assets/sprites/slime_green.png" id="1_k3gio"]
-[ext_resource type="PackedScene" uid="uid://bovq5nweho4yv" path="res://Scenes/killzone.tscn" id="2_5oarl"]
+[ext_resource type="Script" path="res://Scripts/slime copy.gd" id="1_bqwkd"]
+[ext_resource type="Texture2D" uid="uid://i66s8pdiuc0o" path="res://Assets/key.png" id="1_k3gio"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lbav"]
+size = Vector2(6, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tdvl"]
 atlas = ExtResource("1_k3gio")
@@ -83,36 +85,37 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rr1qs"]
-size = Vector2(8, 13)
-
 [node name="Slime" type="Node2D"]
 script = ExtResource("1_bqwkd")
 
+[node name="enemyBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyBody2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_1lbav")
+
+[node name="RayCastRight" type="RayCast2D" parent="enemyBody2D"]
+position = Vector2(0, 2)
+target_position = Vector2(7, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="enemyBody2D"]
+position = Vector2(0, 2)
+target_position = Vector2(-7, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="enemyBody2D"]
+texture_filter = 1
+texture = ExtResource("1_k3gio")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_kbvn8")
 animation = &"spawn"
 autoplay = "idle"
 frame = 2
 frame_progress = 0.345938
 
-[node name="killzone" parent="." instance=ExtResource("2_5oarl")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-position = Vector2(0, 5.5)
-shape = SubResource("RectangleShape2D_rr1qs")
-
-[node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2(0, 5)
-target_position = Vector2(7, 0)
-
-[node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(0, 5)
-target_position = Vector2(-7, 0)
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 
-[connection signal="animation_done" from="." to="." method="_on_animation_done"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

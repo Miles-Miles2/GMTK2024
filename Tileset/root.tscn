@@ -3,9 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://dhgatk0xaee0v" path="res://player.tscn" id="1_gyjny"]
 [ext_resource type="TileSet" uid="uid://cvybiv4kqocla" path="res://Tileset/pico8.tres" id="2_nw3ex"]
 [ext_resource type="Script" path="res://Scripts/CameraMove.gd" id="3_locxl"]
+
 [ext_resource type="PackedScene" uid="uid://bovq5nweho4yv" path="res://killzone copy.tscn" id="4_ix7kd"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7xkj2"]
+
 
 [node name="Root" type="Node2D"]
 
@@ -23,6 +25,7 @@ zoom = Vector2(2.875, 2.875)
 position_smoothing_enabled = true
 script = ExtResource("3_locxl")
 player = NodePath("../Player")
+
 
 [node name="killzone" parent="." instance=ExtResource("4_ix7kd")]
 position = Vector2(142, 60)
