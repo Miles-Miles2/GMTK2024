@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://goebov0jswmq"]
+[gd_scene load_steps=12 format=3 uid="uid://goebov0jswmq"]
 
 [ext_resource type="PackedScene" uid="uid://dhgatk0xaee0v" path="res://player.tscn" id="1_gyjny"]
 [ext_resource type="Script" path="res://Scripts/GameManager copy.gd" id="1_tkfmg"]
@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bovq5nweho4yv" path="res://killzone copy.tscn" id="4_ix7kd"]
 [ext_resource type="PackedScene" uid="uid://bwktujbfadlfs" path="res://slime copy.tscn" id="5_v4j2h"]
 [ext_resource type="PackedScene" uid="uid://d31p314016las" path="res://coin copy.tscn" id="7_bupom"]
-
 [ext_resource type="Texture2D" uid="uid://cwy37t7cx65oh" path="res://Assets/BG_0.png" id="8_57dab"]
 [ext_resource type="Texture2D" uid="uid://bwykwqcq1n32o" path="res://Assets/BG_1.png" id="9_rae86"]
+[ext_resource type="PackedScene" uid="uid://dbtjv0mgurp8l" path="res://Platform copy.tscn" id="10_k0awo"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7xkj2"]
 
@@ -63,10 +63,7 @@ shape = SubResource("WorldBoundaryShape2D_7xkj2")
 
 [node name="Enemies" type="Node" parent="."]
 
-
 [node name="Slime" parent="Enemies" groups=["enemy"] instance=ExtResource("5_v4j2h")]
-
-
 position = Vector2(136, 2)
 
 [node name="Coins" type="Node" parent="."]
@@ -76,3 +73,8 @@ position = Vector2(76, 5)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("7_bupom")]
 position = Vector2(76, -20)
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="Platform" parent="Platforms" groups=["Platforms"] instance=ExtResource("10_k0awo")]
+position = Vector2(114, -20)

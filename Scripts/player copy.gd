@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -300.0
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var timer = $Timer
 
+@export var platformSpeedMultiplyer = 1
 @export var enemySpeedMultiplyer = 1
 #@onready var animation_player = $AnimationPlayer
 
@@ -77,4 +78,23 @@ func _physics_process(delta):
 		for node in get_tree().get_nodes_in_group("enemy"):
 			node.speedMult = enemySpeedMultiplyer
 		
+	
+	if Input.is_action_just_pressed("speed_plat"):
+		platformSpeedMultiplyer *= 2
+		changeSpeed = true
+	elif Input.is_action_just_pressed("slow_plat"):
+		platformSpeedMultiplyer *= 0.5
+		changeSpeed = true
+	
+	if Input.is_action_just_released("speed_plat"):
+		platformSpeedMultiplyer *= 0.5
+		print("released")
+		changeSpeed = true
+	elif Input.is_action_just_released("slow_plat"):
+		platformSpeedMultiplyer *= 2
+		changeSpeed = true
+	
+	if changeSpeed:
+		for node in get_tree().get_nodes_in_group("Platforms"):
+			node.platSpeedMult = platformSpeedMultiplyer
 
