@@ -46,3 +46,8 @@ func _process(delta):
 		body.velocity.x = (SPEED * speedMult * delta * direction)
 
 	body.move_and_slide()
+
+
+func _on_ground_check_body_exited(body: Node2D) -> void:
+	if (body.is_in_group("ground")):
+		direction *= -1
