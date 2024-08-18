@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhgatk0xaee0v"]
+[gd_scene load_steps=13 format=3 uid="uid://dhgatk0xaee0v"]
 
 [ext_resource type="Script" path="res://Scripts/player copy.gd" id="1_4gsat"]
 [ext_resource type="Texture2D" uid="uid://cg40v0qsasp1a" path="res://Tileset/tilemap_packed.png" id="2_lybht"]
+[ext_resource type="AudioStream" uid="uid://cjmodgwnh0nl2" path="res://Audio/SFX/sfx_jump_07-80241.mp3" id="3_x1lgl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0aolo"]
 atlas = ExtResource("2_lybht")
@@ -27,7 +28,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -93,7 +94,6 @@ script = ExtResource("1_4gsat")
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_ye5og")
 animation = &"jump"
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5.5)
@@ -106,5 +106,10 @@ wait_time = 0.7
 libraries = {
 "": SubResource("AnimationLibrary_ess8q")
 }
+
+[node name="jumpSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_x1lgl")
+volume_db = -20.0
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

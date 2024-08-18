@@ -1,11 +1,12 @@
 extends Node
 
 @onready var timer = $Timer
+@onready var death = $deathSFX
 
 
 func _on_body_entered(body):
 	print("You died!")
-	body.get_node("AnimatedSprite2D").play("hit")
+	death.play()
 	Engine.time_scale = 0.5
 	body.get_node("CollisionShape2D").queue_free()
 	timer.start()
