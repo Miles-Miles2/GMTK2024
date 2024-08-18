@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dhgatk0xaee0v"]
+[gd_scene load_steps=15 format=3 uid="uid://dhgatk0xaee0v"]
 
 [ext_resource type="Script" path="res://Scripts/player copy.gd" id="1_4gsat"]
 [ext_resource type="Texture2D" uid="uid://cg40v0qsasp1a" path="res://Tileset/tilemap_packed.png" id="2_lybht"]
@@ -19,6 +19,14 @@ region = Rect2(16, 56, 8, 8)
 [sub_resource type="AtlasTexture" id="AtlasTexture_trmsk"]
 atlas = ExtResource("2_lybht")
 region = Rect2(24, 56, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt036"]
+atlas = ExtResource("2_lybht")
+region = Rect2(8, 56, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atrpc"]
+atlas = ExtResource("2_lybht")
+region = Rect2(16, 56, 8, 7)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ye5og"]
 animations = [{
@@ -42,6 +50,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt036")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atrpc")
+}],
+"loop": true,
+"name": &"run",
 "speed": 5.0
 }]
 
@@ -93,8 +112,7 @@ script = ExtResource("1_4gsat")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_ye5og")
-animation = &"jump"
-frame = 1
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5.5)

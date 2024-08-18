@@ -38,13 +38,12 @@ func _physics_process(delta):
 		
 		
 	if is_on_floor():
-		animated_sprite.play("idle")
 		if direction == 0:
 			pass
 			animated_sprite.play("idle")	
 		else:
 			pass
-			#animated_sprite.play("run") (No Running animation in the tileset)
+			animated_sprite.play("run")
 	else:
 		animated_sprite.play("jump")
 		
