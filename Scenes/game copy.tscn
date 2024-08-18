@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://d31p314016las" path="res://Scenes/coin copy.tscn" id="4_a7osa"]
 [ext_resource type="PackedScene" uid="uid://bovq5nweho4yv" path="res://Scenes/killzone copy.tscn" id="5_0wpim"]
 [ext_resource type="PackedScene" uid="uid://bwktujbfadlfs" path="res://Scenes/slime copy.tscn" id="6_2ok1d"]
-[ext_resource type="PackedScene" path="res://powerup copy.tscn" id="9_ndmly"]
-[ext_resource type="PackedScene" path="res://slowdown copy.tscn" id="10_ln3ad"]
+[ext_resource type="PackedScene" uid="uid://kd13pyf1tgj1" path="res://Scenes/powerup copy.tscn" id="9_ndmly"]
+[ext_resource type="PackedScene" uid="uid://dpk26sllyhcym" path="res://Scenes/slowdown copy.tscn" id="10_ln3ad"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l7la1"]
 texture = ExtResource("2_ugfxk")

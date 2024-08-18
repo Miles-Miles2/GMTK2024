@@ -1,18 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://bovq5nweho4yv"]
 
-[ext_resource type="Script" path="res://Scripts/killzone copy.gd" id="1_w7s3a"]
-[ext_resource type="AudioStream" uid="uid://c7jo03uk3bl2f" path="res://Audio/SFX/glitch-bass-101008.mp3" id="2_x5th8"]
+[ext_resource type="Script" path="res://Scripts/killzone copy.gd" id="1_ricye"]
+[ext_resource type="AudioStream" uid="uid://c7jo03uk3bl2f" path="res://Audio/SFX/glitch-bass-101008.mp3" id="2_omttr"]
 
 [node name="killzone" type="Area2D"]
 collision_mask = 2
-script = ExtResource("1_w7s3a")
+script = ExtResource("1_ricye")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.6
 one_shot = true
 
 [node name="deathSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_x5th8")
+stream = ExtResource("2_omttr")
 bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

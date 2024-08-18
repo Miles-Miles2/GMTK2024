@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dhgatk0xaee0v"]
+[gd_scene load_steps=16 format=3 uid="uid://dhgatk0xaee0v"]
 
 [ext_resource type="Script" path="res://Scripts/player copy.gd" id="1_4gsat"]
 [ext_resource type="Texture2D" uid="uid://cg40v0qsasp1a" path="res://Tileset/tilemap_packed.png" id="2_lybht"]
@@ -104,6 +104,9 @@ _data = {
 "slide": SubResource("Animation_womsh")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_sc5cu"]
+radius = 1.0
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
 collision_layer = 2
@@ -132,4 +135,11 @@ stream = ExtResource("3_x1lgl")
 volume_db = -20.0
 bus = &"SFX"
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_sc5cu")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

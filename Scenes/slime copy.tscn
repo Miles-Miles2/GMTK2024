@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwktujbfadlfs"]
+[gd_scene load_steps=10 format=3 uid="uid://bwktujbfadlfs"]
 
 [ext_resource type="Script" path="res://Scripts/slime copy.gd" id="1_bqwkd"]
 [ext_resource type="Texture2D" uid="uid://cg40v0qsasp1a" path="res://Tileset/tilemap_packed.png" id="2_cy2l3"]
 [ext_resource type="Script" path="res://Scripts/killzone copy.gd" id="2_fty84"]
-[ext_resource type="PackedScene" uid="uid://bovq5nweho4yv" path="res://Scenes/killzone copy.tscn" id="3_5vly4"]
+[ext_resource type="PackedScene" uid="uid://bovq5nweho4yv" path="res://killzone copy.tscn" id="3_5vly4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o50dt"]
 size = Vector2(8, 11)
@@ -11,26 +11,19 @@ size = Vector2(8, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1lbav"]
 size = Vector2(6, 9)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bskin"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sl2t"]
 atlas = ExtResource("2_cy2l3")
 region = Rect2(8, 48, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ovb4d"]
-atlas = ExtResource("2_cy2l3")
-region = Rect2(16, 48, 8, 7)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kbvn8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bskin")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ovb4d")
+"texture": SubResource("AtlasTexture_5sl2t")
 }],
 "loop": true,
-"name": &"walk",
-"speed": 5.0
+"name": &"idle",
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5e1bx"]
@@ -62,9 +55,8 @@ target_position = Vector2(-7, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemyBody2D"]
 sprite_frames = SubResource("SpriteFrames_kbvn8")
-animation = &"walk"
-autoplay = "walk"
-frame_progress = 0.42884
+animation = &"idle"
+autoplay = "idle"
 
 [node name="groundCheck" type="Area2D" parent="enemyBody2D"]
 
