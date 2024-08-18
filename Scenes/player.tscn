@@ -1,0 +1,135 @@
+[gd_scene load_steps=15 format=3 uid="uid://dhgatk0xaee0v"]
+
+[ext_resource type="Script" path="res://Scripts/player copy.gd" id="1_4gsat"]
+[ext_resource type="Texture2D" uid="uid://cg40v0qsasp1a" path="res://Tileset/tilemap_packed.png" id="2_lybht"]
+[ext_resource type="AudioStream" uid="uid://cjmodgwnh0nl2" path="res://Audio/SFX/sfx_jump_07-80241.mp3" id="3_x1lgl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0aolo"]
+atlas = ExtResource("2_lybht")
+region = Rect2(8, 56, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqo8q"]
+atlas = ExtResource("2_lybht")
+region = Rect2(8, 56, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4gi7"]
+atlas = ExtResource("2_lybht")
+region = Rect2(16, 56, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trmsk"]
+atlas = ExtResource("2_lybht")
+region = Rect2(24, 56, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt036"]
+atlas = ExtResource("2_lybht")
+region = Rect2(8, 56, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atrpc"]
+atlas = ExtResource("2_lybht")
+region = Rect2(16, 56, 8, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ye5og"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0aolo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqo8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4gi7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trmsk")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt036")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atrpc")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q57gs"]
+size = Vector2(10, 9)
+
+[sub_resource type="Animation" id="Animation_wvi3e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_womsh"]
+resource_name = "slide"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ess8q"]
+_data = {
+"RESET": SubResource("Animation_wvi3e"),
+"slide": SubResource("Animation_womsh")
+}
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 1
+collision_layer = 2
+script = ExtResource("1_4gsat")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_ye5og")
+animation = &"run"
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_q57gs")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ess8q")
+}
+
+[node name="jumpSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_x1lgl")
+volume_db = -20.0
+bus = &"SFX"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

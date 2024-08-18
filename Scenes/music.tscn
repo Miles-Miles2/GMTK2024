@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx4koqqgqemm8"]
+
+[ext_resource type="AudioStream" uid="uid://cryetk1buxljv" path="res://Audio/Music/2019-01-10_-_Land_of_8_Bits_-_Stephen_Bennett_-_FesliyanStudios.com.mp3" id="1_nhgpm"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_nhgpm")
+autoplay = true
+bus = &"Music"

@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="2024 GMTK"
-run/main_scene="res://Tileset/root.tscn"
+run/main_scene="res://Scenes/title.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Music="*res://music.tscn"
+Music="*res://Scenes/music.tscn"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
