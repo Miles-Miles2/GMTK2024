@@ -6,5 +6,5 @@ extends Camera2D
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	position = player.position
+func _physics_process(delta: float) -> void:
+	position = position.lerp(player.position, 0.1)
