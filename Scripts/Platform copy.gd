@@ -8,6 +8,7 @@ var count = 0
 var max_limit = 0
 var min_limit = 0
 @export var platSpeedMult = 1
+@export var velocity: Vector2
 
 func _ready():
 	var max_lim = position.x + 80
@@ -22,8 +23,10 @@ func _physics_process(delta):
 		direction *= -1
 	if position.x < min_limit:
 		direction *= -1
+		
+	velocity = Vector2(speed * delta * direction * platSpeedMult, 0)
 	if position.x <= max_limit || position.x >= min_limit:
-		position.x += speed * delta * direction * platSpeedMult
+		move_and_collide(velocity)
 
 	if platSpeedMult == 1:
 		platSFX.pitch_scale = 0.9

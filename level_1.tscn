@@ -56,3 +56,4 @@ text = "Press \"i\" to speedup enemies
 Press \"k\" to slowdown enemies
 When enemies are going fast,
 they fall off edges"
+metadata/_edit_use_anchors_ = true

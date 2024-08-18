@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://djr2gi22226ys"]
+
+[ext_resource type="PackedScene" uid="uid://dhgatk0xaee0v" path="res://player.tscn" id="1_ndikv"]
+[ext_resource type="TileSet" uid="uid://cvybiv4kqocla" path="res://Tileset/pico8.tres" id="2_erth2"]
+[ext_resource type="PackedScene" uid="uid://bwktujbfadlfs" path="res://slime copy.tscn" id="3_uvg48"]
+[ext_resource type="Script" path="res://Scripts/CameraMove.gd" id="4_24fxi"]
+[ext_resource type="Texture2D" uid="uid://cwy37t7cx65oh" path="res://Assets/BG_0.png" id="5_l1xlb"]
+[ext_resource type="Texture2D" uid="uid://bwykwqcq1n32o" path="res://Assets/BG_1.png" id="6_gxwe3"]
+[ext_resource type="PackedScene" uid="uid://dbtjv0mgurp8l" path="res://Platform copy.tscn" id="7_vrq34"]
+
+[node name="template_level" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ndikv")]
+position = Vector2(20, 0)
+
+[node name="TileMap" type="TileMap" parent="." groups=["ground"]]
+tile_set = ExtResource("2_erth2")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 262144, 2, 1, 262144, 2, 2, 262144, 2, 3, 262144, 2, 4, 262144, 2, 5, 262144, 2, 6, 262144, 2, 7, 262144, 2, 8, 262144, 2, 9, 262144, 2, 10, 262144, 2, 65546, 262144, 2, 131082, 262144, 2, 196618, 262144, 2, 262154, 262144, 2, 65535, 262144, 2, 65534, 262144, 2, 65533, 262144, 2, 65532, 262144, 2, 65531, 262144, 2, 65530, 262144, 2, 65529, 262144, 2, 65528, 262144, 2, 65527, 262144, 2, 65526, 262144, 2, 65525, 262144, 2, 65524, 262144, 2, -12, 262144, 2, -65548, 262144, 2, -131084, 262144, 2, -196620, 262144, 2, -262156, 262144, 2, -327692, 262144, 2, -393228, 262144, 2, -458764, 262144, 2, -524300, 262144, 2, -589836, 262144, 2, -655372, 262144, 2, -720908, 262144, 2, -786444, 262144, 2, -851980, 262144, 2, 262155, 262144, 2, 262156, 262144, 2, 262157, 262144, 2, 262158, 262144, 2, 262159, 262144, 2, 262160, 262144, 2, 262161, 262144, 2, 262162, 262144, 2, 262163, 262144, 2, 262164, 262144, 2, 262165, 262144, 2, 196629, 262144, 2, 131093, 262144, 2, 65557, 262144, 2, 21, 262144, 2, -65515, 262144, 2, -131051, 262144, 2, -196587, 262144, 2, -262123, 262144, 2, -327659, 262144, 2, -393195, 262144, 2, -458731, 262144, 2, -524267, 262144, 2, -589803, 262144, 2)
+
+[node name="Slime" parent="." groups=["enemy"] instance=ExtResource("3_uvg48")]
+position = Vector2(92, -38)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(20, -5)
+zoom = Vector2(4, 4)
+position_smoothing_speed = 1.0
+script = ExtResource("4_24fxi")
+player = NodePath("../Player")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Camera2D"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_offset = Vector2(100, 50)
+motion_mirroring = Vector2(440, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("5_l1xlb")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_offset = Vector2(100, 75)
+motion_mirroring = Vector2(440, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("6_gxwe3")
+
+[node name="Platform" parent="." groups=["Platforms"] instance=ExtResource("7_vrq34")]
+position = Vector2(59, -21)
+sync_to_physics = false

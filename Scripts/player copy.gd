@@ -7,7 +7,7 @@ const JUMP_VELOCITY = -300.0
 @onready var timer = $Timer
 @onready var jumpSFX = $jumpSFX
 
-
+var addVelocityDebounce: int = 0
 
 @export var platformSpeedMultiplyer = 1
 @export var enemySpeedMultiplyer = 1
@@ -19,13 +19,14 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
 	# Add the gravity.
+	addVelocityDebounce = max(0, addVelocityDebounce - 1)
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		jumpSFX.play()
-		velocity.y = JUMP_VELOCITY
+		velocity.y += JUMP_VELOCITY
 		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -50,10 +51,18 @@ func _physics_process(delta):
 	
 	
 	if direction:
-		velocity.x = direction * SPEED
+		if is_on_floor():
+			print(max(abs(direction * SPEED), abs(velocity.x)) * direction)
+			velocity.x = direction * SPEED
+		else:
+			if abs(velocity.x + (direction * SPEED)*0.2) < SPEED:
+				velocity.x += (direction * SPEED)*0.2
+			elif abs(velocity.x	 + (direction * SPEED)*0.2) < abs(velocity.x):
+				velocity.x += (direction * SPEED)*0.2
 		
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if is_on_floor():
+			velocity.x = 0
 
 	move_and_slide()
 	
@@ -98,3 +107,10 @@ func _physics_process(delta):
 		for node in get_tree().get_nodes_in_group("Platforms"):
 			node.platSpeedMult = platformSpeedMultiplyer
 
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if (body.is_in_group("Platforms")) and addVelocityDebounce <= 0:
+		addVelocityDebounce += 10
+		print("adding velocity: " + str(body.velocity))
+		velocity += body.velocity
