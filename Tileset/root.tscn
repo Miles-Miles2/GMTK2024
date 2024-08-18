@@ -22,7 +22,7 @@ script = ExtResource("1_tkfmg")
 [node name="Player" parent="." instance=ExtResource("1_gyjny")]
 position = Vector2(39, 0)
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." groups=["ground"]]
 texture_filter = 1
 tile_set = ExtResource("2_nw3ex")
 format = 2
@@ -65,6 +65,9 @@ shape = SubResource("WorldBoundaryShape2D_7xkj2")
 [node name="Slime" parent="Enemies" groups=["enemy"] instance=ExtResource("5_v4j2h")]
 position = Vector2(136, 2)
 
+[node name="Slime2" parent="Enemies" groups=["enemy"] instance=ExtResource("5_v4j2h")]
+position = Vector2(115, -33)
+
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("7_bupom")]
@@ -75,5 +78,5 @@ position = Vector2(76, -20)
 
 [node name="Platforms" type="Node" parent="."]
 
-[node name="Platform" parent="Platforms" groups=["Platforms"] instance=ExtResource("10_k0awo")]
+[node name="Platform" parent="Platforms" groups=["Platforms", "ground"] instance=ExtResource("10_k0awo")]
 position = Vector2(114, -20)
