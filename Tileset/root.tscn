@@ -30,7 +30,8 @@ layer_0/tile_data = PackedInt32Array(65537, 262144, 2, 65536, 393216, 0, 131072,
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(39, -5)
-zoom = Vector2(4, 4)
+offset = Vector2(50, 0)
+zoom = Vector2(5, 5)
 position_smoothing_speed = 1.0
 script = ExtResource("3_locxl")
 player = NodePath("../Player")
@@ -39,18 +40,20 @@ player = NodePath("../Player")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
 motion_scale = Vector2(0.1, 0.1)
-motion_offset = Vector2(100, 50)
+motion_offset = Vector2(0, 50)
 motion_mirroring = Vector2(440, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
 texture = ExtResource("8_57dab")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
 motion_scale = Vector2(0.2, 0.2)
-motion_offset = Vector2(100, 75)
+motion_offset = Vector2(0, 75)
 motion_mirroring = Vector2(440, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer2"]
+texture_repeat = 2
 texture = ExtResource("9_rae86")
 
 [node name="killzone" parent="." instance=ExtResource("4_ix7kd")]
@@ -92,4 +95,3 @@ position = Vector2(114, -20)
 
 [node name="Platform2" parent="Platforms" groups=["Platforms", "ground"] instance=ExtResource("10_k0awo")]
 position = Vector2(342, 12)
-
