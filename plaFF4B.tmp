@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://dhgatk0xaee0v"]
+
+[ext_resource type="Script" path="res://Scripts/player copy.gd" id="1_4gsat"]
+[ext_resource type="Texture2D" uid="uid://bcgi5luaobjb" path="res://Assets/tempChar.png" id="2_coio2"]
+[ext_resource type="Texture2D" uid="uid://cg40v0qsasp1a" path="res://Tileset/tilemap_packed.png" id="2_lybht"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn8ry"]
+atlas = ExtResource("2_lybht")
+region = Rect2(8, 56, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3n8em"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn8ry")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q57gs"]
+size = Vector2(10, 9)
+
+[sub_resource type="Animation" id="Animation_wvi3e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_womsh"]
+resource_name = "slide"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ess8q"]
+_data = {
+"RESET": SubResource("Animation_wvi3e"),
+"slide": SubResource("Animation_womsh")
+}
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 1
+collision_layer = 2
+script = ExtResource("1_4gsat")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_3n8em")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_q57gs")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ess8q")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -5)
+texture = ExtResource("2_coio2")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

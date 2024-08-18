@@ -13,6 +13,7 @@ var SPEED = 2000
 
 @export var speedMult: float = 1
 
+
 @onready var timer = $Timer
 
 var start_move = false
@@ -41,5 +42,7 @@ func _process(delta):
 		slime.flip_h = false
 		
 	if start_move:
+
 		body.velocity.x = (SPEED * speedMult * delta * direction)
+
 	body.move_and_slide()
