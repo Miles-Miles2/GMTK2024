@@ -23,6 +23,10 @@ Music="*res://Scenes/music.tscn"
 
 window/stretch/mode="canvas_items"
 
+[display]
+
+window/size/resizable=false
+
 [dotnet]
 
 project/assembly_name="2024 GMTK"

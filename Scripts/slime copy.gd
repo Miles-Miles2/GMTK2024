@@ -9,7 +9,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 #signal animation_done
 
 
-var SPEED = 2000
+var SPEED = 4000
 
 @export var speedMult: float = 1
 
