@@ -1,5 +1,7 @@
 extends AnimatableBody2D
 
+@onready var platSFX = $AudioStreamPlayer2D
+
 var speed = 60
 var direction = 1
 var count = 0
@@ -23,5 +25,14 @@ func _physics_process(delta):
 	if position.x <= max_limit || position.x >= min_limit:
 		position.x += speed * delta * direction * platSpeedMult
 
+	if platSpeedMult == 1:
+		platSFX.pitch_scale = 0.9
+		platSFX.volume_db = -20
+	elif platSpeedMult == 2:
+		platSFX.pitch_scale = 2.0
+		platSFX.volume_db = -25
+	elif platSpeedMult == .5:
+		platSFX.pitch_scale = 0.7
+		platSFX.volume_db = -20
 		
 	
