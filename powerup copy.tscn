@@ -1,11 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://kd13pyf1tgj1"]
+[gd_scene load_steps=9 format=3 uid="uid://kd13pyf1tgj1"]
 
 [ext_resource type="Script" path="res://Scripts/powerup copy.gd" id="1_0wycg"]
-[ext_resource type="Texture2D" path="res://Assets/sprites/fruit.png" id="2_evc0d"]
-[ext_resource type="AudioStream" path="res://Assets/sounds/power_up.wav" id="3_l8ffr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqy6q"]
-atlas = ExtResource("2_evc0d")
 region = Rect2(32, 32, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sp6ak"]
@@ -158,7 +155,6 @@ libraries = {
 autoplay = "idle"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_l8ffr")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
