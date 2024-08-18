@@ -63,7 +63,7 @@ shape = SubResource("WorldBoundaryShape2D_7xkj2")
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Slime" parent="Enemies" groups=["enemy"] instance=ExtResource("5_v4j2h")]
-position = Vector2(190, 2)
+position = Vector2(189, 3)
 
 [node name="Slime3" parent="Enemies" groups=["enemy"] instance=ExtResource("5_v4j2h")]
 position = Vector2(573, 1)
@@ -92,3 +92,4 @@ position = Vector2(114, -20)
 
 [node name="Platform2" parent="Platforms" groups=["Platforms", "ground"] instance=ExtResource("10_k0awo")]
 position = Vector2(342, 12)
+

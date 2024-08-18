@@ -61,10 +61,11 @@ autoplay = "idle"
 [node name="groundCheck" type="Area2D" parent="enemyBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemyBody2D/groundCheck"]
-position = Vector2(6, 7)
+position = Vector2(4, 7)
 shape = SubResource("CircleShape2D_5e1bx")
 
 [node name="groundCheck2" type="Area2D" parent="enemyBody2D"]
+position = Vector2(2, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemyBody2D/groundCheck2"]
 position = Vector2(-6, 7)
