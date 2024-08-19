@@ -7,7 +7,6 @@ extends Area2D
 
 func _ready():
 	player = get_tree().get_nodes_in_group("player")[0]
-	print(player)
 
 
 func _on_body_entered(body):

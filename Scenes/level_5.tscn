@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://db4h8hepgkl2i"]
+[gd_scene load_steps=4 format=3 uid="uid://dgrqm333p3631"]
 
 [ext_resource type="Script" path="res://Scripts/CameraMove.gd" id="1_17t8r"]
 [ext_resource type="Texture2D" uid="uid://cwy37t7cx65oh" path="res://Assets/BG_0.png" id="2_0vu6e"]

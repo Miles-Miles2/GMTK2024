@@ -11,14 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://c44y78f8gw8m8" path="res://Scenes/exit_door.tscn" id="9_u3l80"]
 [ext_resource type="AudioStream" uid="uid://d1eqxr63vwksx" path="res://Audio/SFX/Level_complete SFX.mp3" id="10_mmpyt"]
 
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4trd1"]
-size = Vector2(88, 5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uq1ah"]
+size = Vector2(88, 6)
 
 [node name="level_4" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_4pn80")]
-position = Vector2(20, -4)
+position = Vector2(20, -3)
 
 [node name="TileMap" type="TileMap" parent="." groups=["ground"]]
 tile_set = ExtResource("2_5u3e6")
@@ -72,8 +71,8 @@ x_max = 5.0
 [node name="killzone" parent="." instance=ExtResource("8_2jxm1")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-position = Vector2(124, 48)
-shape = SubResource("RectangleShape2D_4trd1")
+position = Vector2(124, 47)
+shape = SubResource("RectangleShape2D_uq1ah")
 
 [node name="exit_door" parent="." instance=ExtResource("9_u3l80")]
 position = Vector2(-16, -104)

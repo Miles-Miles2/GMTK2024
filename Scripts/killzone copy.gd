@@ -17,9 +17,3 @@ func _on_body_entered(body):
 func _on_timer_timeout():
 	Engine.time_scale = 1.0 
 	get_tree().reload_current_scene()
-
-
-
-
-func _on_ground_check_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
