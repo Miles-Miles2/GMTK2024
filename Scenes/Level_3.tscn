@@ -30,8 +30,8 @@ layer_1/z_index = -1
 layer_1/tile_data = PackedInt32Array(15, 65536, 4, -65521, 65536, 2, -131057, 65536, 0, 60, 65536, 4, -65476, 65536, 2, -131012, 65536, 0, -131054, 65536, 0, -65518, 65536, 2, 18, 65536, 4)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
-position = Vector2(20, -5)
-zoom = Vector2(4, 4)
+position = Vector2(-1, 0)
+zoom = Vector2(3.4, 3.4)
 limit_left = -100
 limit_top = -90
 limit_right = 550
@@ -48,6 +48,7 @@ motion_offset = Vector2(100, 50)
 motion_mirroring = Vector2(440, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer"]
+position = Vector2(50, 0)
 texture = ExtResource("5_gygty")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
@@ -56,6 +57,7 @@ motion_offset = Vector2(100, 75)
 motion_mirroring = Vector2(440, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(50, 0)
 texture = ExtResource("6_om6k2")
 
 [node name="killzone" parent="." instance=ExtResource("8_62vbp")]
@@ -68,7 +70,9 @@ shape = SubResource("WorldBoundaryShape2D_dgbcf")
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Platform" parent="Platforms" groups=["Platforms"] instance=ExtResource("7_3p58y")]
-position = Vector2(279, -21)
+position = Vector2(242, -21)
+x_min = -10.0
+x_max = 87.0
 
 [node name="Slime" parent="." instance=ExtResource("8_8gndk")]
 position = Vector2(64, 4)
@@ -77,7 +81,7 @@ position = Vector2(64, 4)
 position = Vector2(509, 0)
 collision_mask = 2
 script = ExtResource("10_cpagp")
-nextScene = "res://Scenes/title.tscn"
+nextScene = "res://Scenes/level_4.tscn"
 
 [node name="complete" type="AudioStreamPlayer2D" parent="level_3_exit_door"]
 stream = ExtResource("11_ar1by")
