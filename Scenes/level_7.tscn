@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=3 uid="uid://b7aytnckh26se"]
+
+[ext_resource type="PackedScene" uid="uid://dhgatk0xaee0v" path="res://Scenes/player.tscn" id="1_plmf8"]
+[ext_resource type="TileSet" uid="uid://cvybiv4kqocla" path="res://Tileset/pico8.tres" id="2_68nxh"]
+[ext_resource type="PackedScene" uid="uid://bwktujbfadlfs" path="res://Scenes/slime copy.tscn" id="3_7mvci"]
+[ext_resource type="Script" path="res://Scripts/CameraMove.gd" id="4_uxt5f"]
+[ext_resource type="Texture2D" uid="uid://cwy37t7cx65oh" path="res://Assets/BG_0.png" id="5_r8xjx"]
+[ext_resource type="Texture2D" uid="uid://bwykwqcq1n32o" path="res://Assets/BG_1.png" id="6_jdr5d"]
+[ext_resource type="PackedScene" uid="uid://dbtjv0mgurp8l" path="res://Scenes/Platform copy.tscn" id="7_bkmf8"]
+[ext_resource type="PackedScene" uid="uid://c44y78f8gw8m8" path="res://Scenes/exit_door.tscn" id="8_mpncq"]
+[ext_resource type="Script" path="res://keyManager.gd" id="9_dsmss"]
+[ext_resource type="PackedScene" uid="uid://bl4oetftuyfvk" path="res://Scenes/key.tscn" id="9_l20no"]
+
+[node name="level7" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_plmf8")]
+position = Vector2(20, 0)
+
+[node name="TileMap" type="TileMap" parent="." groups=["ground"]]
+tile_set = ExtResource("2_68nxh")
+format = 2
+layer_0/tile_data = PackedInt32Array(131068, 262144, 2, 131069, 262144, 2, 131070, 262144, 2, 131071, 262144, 2, 65536, 262144, 2, 65537, 262144, 2, 65538, 262144, 2, 65539, 262144, 2, 65540, 262144, 2, 65541, 262144, 2, 65542, 262144, 2, 65543, 262144, 2, 65544, 262144, 2, 65545, 262144, 2, 65546, 262144, 2, 65547, 262144, 2, 65548, 262144, 2, 65549, 262144, 2, 65550, 262144, 2, 65551, 262144, 2, 65552, 262144, 2, 65553, 262144, 2, 65554, 262144, 2, 65555, 262144, 2, 65556, 262144, 2, 65557, 262144, 2, 65558, 262144, 2, 65559, 262144, 2)
+
+[node name="Slime" parent="." instance=ExtResource("3_7mvci")]
+position = Vector2(92, -38)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(20, -5)
+zoom = Vector2(4, 4)
+position_smoothing_speed = 1.0
+script = ExtResource("4_uxt5f")
+player = NodePath("../Player")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Camera2D"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_offset = Vector2(100, 50)
+motion_mirroring = Vector2(440, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("5_r8xjx")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_offset = Vector2(100, 75)
+motion_mirroring = Vector2(440, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("6_jdr5d")
+
+[node name="Platform" parent="." groups=["Platforms"] instance=ExtResource("7_bkmf8")]
+position = Vector2(59, -21)
+
+[node name="exit_door" parent="." instance=ExtResource("8_mpncq")]
+
+[node name="Key" parent="exit_door" instance=ExtResource("9_l20no")]
+position = Vector2(166, -1)
+
+[node name="keyManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("9_dsmss")
