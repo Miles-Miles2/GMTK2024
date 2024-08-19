@@ -39,10 +39,14 @@ func _process(delta):
 		body.velocity.x = (SPEED * speedMult * delta * direction)
 		
 		if speedMult > 1:
+			slime.speed_scale = 1.7
 			footsteps.pitch_scale = 1.7
 		elif speedMult < 1:
+			slime.speed_scale = .8
 			footsteps.pitch_scale = .8
+			
 		else:
+			slime.speed_scale = 1
 			footsteps.pitch_scale = 1
 		
 

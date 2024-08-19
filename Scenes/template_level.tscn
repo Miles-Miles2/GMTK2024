@@ -24,12 +24,11 @@ layer_0/tile_data = PackedInt32Array(131068, 262144, 2, 131069, 262144, 2, 13107
 [node name="Slime" parent="." instance=ExtResource("3_uvg48")]
 position = Vector2(92, -38)
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+[node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(20, -5)
 zoom = Vector2(4, 4)
 position_smoothing_speed = 1.0
 script = ExtResource("4_24fxi")
-player = NodePath("../Player")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Camera2D"]
 

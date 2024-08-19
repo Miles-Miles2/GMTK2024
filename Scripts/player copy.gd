@@ -69,10 +69,10 @@ func _physics_process(delta):
 	var changeSpeed: bool = false
 	
 	if Input.is_action_just_pressed("speedup_enemy"):
-		enemySpeedMultiplyer = 2
+		enemySpeedMultiplyer = 2.5
 		changeSpeed = true
 	elif Input.is_action_just_pressed("slowdown_enemy"):
-		enemySpeedMultiplyer = 0.5
+		enemySpeedMultiplyer = 0.35
 		changeSpeed = true
 	
 	if Input.is_action_just_released("speedup_enemy"):

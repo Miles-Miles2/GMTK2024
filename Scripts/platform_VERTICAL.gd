@@ -2,7 +2,7 @@ extends AnimatableBody2D
 
 @onready var platSFX = $AudioStreamPlayer2D
 
-var speed = 60
+@export var speed = 60
 var direction = 1
 var count = 0
 var max_limit = 0
