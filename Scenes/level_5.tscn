@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=14 format=3 uid="uid://db4h8hepgkl2i"]
+
 
 [ext_resource type="Script" path="res://Scripts/CameraMove.gd" id="1_17t8r"]
 [ext_resource type="TileSet" uid="uid://cvybiv4kqocla" path="res://Tileset/pico8.tres" id="1_bvt1c"]

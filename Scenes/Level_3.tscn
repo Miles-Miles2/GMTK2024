@@ -18,7 +18,7 @@
 [node name="level_3" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_mbebc")]
-position = Vector2(-14, 9)
+position = Vector2(485, 2)
 
 [node name="TileMap" type="TileMap" parent="." groups=["ground"]]
 tile_set = ExtResource("2_p86vd")
@@ -81,12 +81,13 @@ position = Vector2(64, 4)
 position = Vector2(509, 0)
 collision_mask = 2
 script = ExtResource("10_cpagp")
+nextScene = "res://Scenes/level_4.tscn"
 
-[node name="complete2" type="AudioStreamPlayer2D" parent="level_3_exit_door"]
+[node name="complete" type="AudioStreamPlayer2D" parent="level_3_exit_door"]
 stream = ExtResource("11_ar1by")
 bus = &"SFX"
 
-[node name="Timer2" type="Timer" parent="level_3_exit_door"]
+[node name="Timer" type="Timer" parent="level_3_exit_door"]
 
 [node name="TilemapPacked" type="Sprite2D" parent="."]
 z_index = -1
@@ -94,3 +95,5 @@ position = Vector2(-14, 1)
 texture = ExtResource("12_m8hkf")
 region_enabled = true
 region_rect = Rect2(104, 48, 16, 16)
+
+[connection signal="timeout" from="level_3_exit_door/Timer" to="level_3_exit_door" method="_on_timer_timeout"]
