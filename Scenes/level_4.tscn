@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://6khty7xg0vvp"]
+[gd_scene load_steps=13 format=3 uid="uid://6khty7xg0vvp"]
 
 [ext_resource type="PackedScene" uid="uid://dhgatk0xaee0v" path="res://Scenes/player.tscn" id="1_4pn80"]
 [ext_resource type="TileSet" uid="uid://cvybiv4kqocla" path="res://Tileset/pico8.tres" id="2_5u3e6"]
@@ -84,6 +84,7 @@ region_rect = Rect2(104, 48, 16, 16)
 
 [node name="exit_door" parent="." instance=ExtResource("9_u3l80")]
 position = Vector2(-16, -104)
+nextScene = "res://Scenes/level_5.tscn"
 
 [node name="complete" type="AudioStreamPlayer2D" parent="exit_door"]
 stream = ExtResource("10_mmpyt")

@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=14 format=3 uid="uid://db4h8hepgkl2i"]
-
+[gd_scene load_steps=13 format=3 uid="uid://dgrqm333p3631"]
 
 [ext_resource type="Script" path="res://Scripts/CameraMove.gd" id="1_17t8r"]
 [ext_resource type="TileSet" uid="uid://cvybiv4kqocla" path="res://Tileset/pico8.tres" id="1_bvt1c"]
@@ -12,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://cg40v0qsasp1a" path="res://Tileset/tilemap_packed.png" id="7_7a2gc"]
 [ext_resource type="PackedScene" uid="uid://dhgatk0xaee0v" path="res://Scenes/player.tscn" id="8_8ojt5"]
 [ext_resource type="PackedScene" uid="uid://c44y78f8gw8m8" path="res://Scenes/exit_door.tscn" id="10_co1mt"]
-[ext_resource type="Script" path="res://Scripts/exit_door.gd" id="11_hr1n7"]
 [ext_resource type="AudioStream" uid="uid://d1eqxr63vwksx" path="res://Audio/SFX/Level_complete SFX.mp3" id="12_v44b7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1t7aj"]
@@ -80,7 +77,6 @@ position = Vector2(-30, 8)
 [node name="vertical" parent="Platforms" groups=["Platforms"] instance=ExtResource("5_nsc58")]
 position = Vector2(10, -9)
 script = ExtResource("6_yuvtf")
-speed = 180
 y_min = -40.0
 y_max = 0.0
 
@@ -90,26 +86,22 @@ x_max = 100.0
 
 [node name="horizontal2" parent="Platforms" groups=["Platforms"] instance=ExtResource("5_nsc58")]
 position = Vector2(204, -133)
-speed = 150
 x_min = -3.0
 x_max = 3.0
 
 [node name="horizontal3" parent="Platforms" groups=["Platforms"] instance=ExtResource("5_nsc58")]
 position = Vector2(163, -166)
-speed = 150
 x_min = -3.0
 x_max = 3.0
 
 [node name="horizontal4" parent="Platforms" groups=["Platforms"] instance=ExtResource("5_nsc58")]
 position = Vector2(204, -203)
-speed = 150
 x_min = -3.0
 x_max = 3.0
 
 [node name="vertical2" parent="Platforms" groups=["Platforms"] instance=ExtResource("5_nsc58")]
 position = Vector2(163, -232)
 script = ExtResource("6_yuvtf")
-speed = 180
 y_min = -40.0
 y_max = 0.0
 
@@ -124,9 +116,6 @@ shape = SubResource("RectangleShape2D_1t7aj")
 [node name="exit_door" parent="." instance=ExtResource("10_co1mt")]
 position = Vector2(324, -312)
 scale = Vector2(1.2, 1)
-collision_mask = 2
-script = ExtResource("11_hr1n7")
-nextScene = "res://Scenes/title.tscn"
 
 [node name="complete" type="AudioStreamPlayer2D" parent="exit_door"]
 stream = ExtResource("12_v44b7")
@@ -135,5 +124,4 @@ volume_db = 24.0
 [node name="Timer" type="Timer" parent="exit_door"]
 wait_time = 1.5
 
-[connection signal="body_entered" from="exit_door" to="exit_door" method="_on_body_entered"]
 [connection signal="timeout" from="exit_door/Timer" to="exit_door" method="_on_timer_timeout"]
