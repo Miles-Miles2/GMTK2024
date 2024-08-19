@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://djr2gi22226ys"]
+[gd_scene load_steps=10 format=3 uid="uid://djr2gi22226ys"]
 
 [ext_resource type="PackedScene" uid="uid://dhgatk0xaee0v" path="res://Scenes/player.tscn" id="1_ndikv"]
 [ext_resource type="TileSet" uid="uid://cvybiv4kqocla" path="res://Tileset/pico8.tres" id="2_erth2"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cwy37t7cx65oh" path="res://Assets/BG_0.png" id="5_l1xlb"]
 [ext_resource type="Texture2D" uid="uid://bwykwqcq1n32o" path="res://Assets/BG_1.png" id="6_gxwe3"]
 [ext_resource type="PackedScene" uid="uid://dbtjv0mgurp8l" path="res://Scenes/Platform copy.tscn" id="7_vrq34"]
+[ext_resource type="PackedScene" uid="uid://bovq5nweho4yv" path="res://Scenes/killzone copy.tscn" id="8_4smbe"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dgbcf"]
 
 [node name="template_level" type="Node2D"]
 
@@ -49,3 +52,9 @@ texture = ExtResource("6_gxwe3")
 [node name="Platform" parent="." groups=["Platforms"] instance=ExtResource("7_vrq34")]
 position = Vector2(59, -21)
 sync_to_physics = false
+
+[node name="killzone" parent="." instance=ExtResource("8_4smbe")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(1, 56)
+shape = SubResource("WorldBoundaryShape2D_dgbcf")
