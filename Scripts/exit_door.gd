@@ -3,7 +3,7 @@ extends Area2D
 @onready var timer = $Timer
 @onready var player = $"../Player"
 
-
+@export var nextScene: String
 
 func _on_body_entered(body):
 	player.set_physics_process(false)
@@ -12,4 +12,4 @@ func _on_body_entered(body):
 	timer.start()
 	
 func _on_timer_timeout():
-	get_tree().change_scene_to_file("res://Scenes/template_level.tscn")
+	get_tree().change_scene_to_file(nextScene)
