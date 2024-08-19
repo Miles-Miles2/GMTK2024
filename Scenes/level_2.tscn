@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdt6hx54jcht3"]
+[gd_scene load_steps=11 format=3 uid="uid://cdt6hx54jcht3"]
 
 [ext_resource type="PackedScene" uid="uid://dhgatk0xaee0v" path="res://Scenes/player.tscn" id="1_q2gf5"]
 [ext_resource type="TileSet" uid="uid://cvybiv4kqocla" path="res://Tileset/pico8.tres" id="2_im67o"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bwykwqcq1n32o" path="res://Assets/BG_1.png" id="6_sdyxo"]
 [ext_resource type="PackedScene" uid="uid://dbtjv0mgurp8l" path="res://Scenes/Platform copy.tscn" id="7_82weu"]
 [ext_resource type="Script" path="res://Scripts/platform_VERTICAL.gd" id="8_hk6r5"]
+[ext_resource type="PackedScene" path="res://Scenes/exit_door.tscn" id="8_smppj"]
+[ext_resource type="Script" path="res://Scripts/exit_door.gd" id="9_nkv84"]
+[ext_resource type="AudioStream" uid="uid://d1eqxr63vwksx" path="res://Audio/SFX/Level_complete SFX.mp3" id="10_qyjai"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -63,3 +66,20 @@ You can use platforms to give
 yourself a boost. The faster the platforms,
 the bigger the boost"
 metadata/_edit_use_anchors_ = true
+
+[node name="exit_door" parent="." instance=ExtResource("8_smppj")]
+position = Vector2(107, -128)
+scale = Vector2(1.2, 1)
+collision_mask = 2
+script = ExtResource("9_nkv84")
+nextScene = "res://Scenes/level_2.tscn"
+
+[node name="complete" type="AudioStreamPlayer2D" parent="exit_door"]
+stream = ExtResource("10_qyjai")
+volume_db = 24.0
+
+[node name="Timer" type="Timer" parent="exit_door"]
+wait_time = 1.5
+
+[connection signal="body_entered" from="exit_door" to="exit_door" method="_on_body_entered"]
+[connection signal="timeout" from="exit_door/Timer" to="exit_door" method="_on_timer_timeout"]
