@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwktujbfadlfs"]
+[gd_scene load_steps=12 format=3 uid="uid://bwktujbfadlfs"]
 
 [ext_resource type="Script" path="res://Scripts/slime copy.gd" id="1_bqwkd"]
 [ext_resource type="Texture2D" uid="uid://cg40v0qsasp1a" path="res://Tileset/tilemap_packed.png" id="2_cy2l3"]
 [ext_resource type="Script" path="res://Scripts/killzone copy.gd" id="2_fty84"]
 [ext_resource type="PackedScene" uid="uid://bovq5nweho4yv" path="res://Scenes/killzone copy.tscn" id="3_5vly4"]
+[ext_resource type="AudioStream" uid="uid://cpibs8wwbdiip" path="res://Audio/SFX/501102__evretro__8-bit-footsteps.mp3" id="5_lmfmq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o50dt"]
 size = Vector2(8, 11)
@@ -30,7 +31,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 10.0
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5e1bx"]
@@ -77,6 +78,12 @@ position = Vector2(2, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemyBody2D/groundCheck2" groups=["ground"]]
 position = Vector2(-6, 7)
 shape = SubResource("CircleShape2D_5e1bx")
+
+[node name="footsteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_lmfmq")
+volume_db = 5.0
+autoplay = true
+bus = &"SFX"
 
 [connection signal="animation_finished" from="enemyBody2D/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_exited" from="enemyBody2D/groundCheck" to="." method="_on_ground_check_body_exited"]
