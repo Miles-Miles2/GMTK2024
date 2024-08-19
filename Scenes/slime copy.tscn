@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cg40v0qsasp1a" path="res://Tileset/tilemap_packed.png" id="2_cy2l3"]
 [ext_resource type="Script" path="res://Scripts/killzone copy.gd" id="2_fty84"]
 [ext_resource type="PackedScene" uid="uid://bovq5nweho4yv" path="res://Scenes/killzone copy.tscn" id="3_5vly4"]
-[ext_resource type="AudioStream" uid="uid://cpibs8wwbdiip" path="res://Audio/SFX/501102__evretro__8-bit-footsteps.mp3" id="5_lmfmq"]
+[ext_resource type="AudioStream" uid="uid://ch8br00x5r6jb" path="res://Audio/SFX/feetstep.mp3" id="5_bj711"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o50dt"]
 size = Vector2(8, 11)
@@ -65,6 +65,7 @@ target_position = Vector2(-7, 0)
 sprite_frames = SubResource("SpriteFrames_kbvn8")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.780719
 
 [node name="groundCheck" type="Area2D" parent="enemyBody2D"]
 
@@ -80,8 +81,8 @@ position = Vector2(-6, 7)
 shape = SubResource("CircleShape2D_5e1bx")
 
 [node name="footsteps" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_lmfmq")
-volume_db = 5.0
+stream = ExtResource("5_bj711")
+volume_db = -2.0
 autoplay = true
 bus = &"SFX"
 
