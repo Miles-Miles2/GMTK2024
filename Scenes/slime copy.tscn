@@ -9,13 +9,13 @@
 size = Vector2(8, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1lbav"]
-size = Vector2(6, 7)
+size = Vector2(6, 9)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5sl2t"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bskin"]
 atlas = ExtResource("2_cy2l3")
 region = Rect2(8, 48, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ie7wc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovb4d"]
 atlas = ExtResource("2_cy2l3")
 region = Rect2(16, 48, 8, 7)
 
@@ -23,14 +23,14 @@ region = Rect2(16, 48, 8, 7)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5sl2t")
+"texture": SubResource("AtlasTexture_bskin")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ie7wc")
+"texture": SubResource("AtlasTexture_ovb4d")
 }],
 "loop": true,
-"name": &"idle",
-"speed": 10.0
+"name": &"walk",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5e1bx"]
@@ -62,20 +62,20 @@ target_position = Vector2(-7, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemyBody2D"]
 sprite_frames = SubResource("SpriteFrames_kbvn8")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
 
 [node name="groundCheck" type="Area2D" parent="enemyBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyBody2D/groundCheck" groups=["ground"]]
-position = Vector2(4, 7)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyBody2D/groundCheck"]
+position = Vector2(3, 7)
 shape = SubResource("CircleShape2D_5e1bx")
 
 [node name="groundCheck2" type="Area2D" parent="enemyBody2D"]
 position = Vector2(2, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyBody2D/groundCheck2" groups=["ground"]]
-position = Vector2(-6, 7)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyBody2D/groundCheck2"]
+position = Vector2(-5, 7)
 shape = SubResource("CircleShape2D_5e1bx")
 
 [connection signal="animation_finished" from="enemyBody2D/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -8,6 +8,7 @@
 size = Vector2(30, 8)
 
 [node name="Platform" type="AnimatableBody2D"]
+sync_to_physics = false
 script = ExtResource("1_cg6kc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -16,26 +16,28 @@ var SPEED = 1500
 
 
 var direction = 1
-
+var delay = 0
 	
 func _process(delta):
-	
-	if not body.is_on_floor():
-		body.velocity.y += gravity * delta
-	
-	if ray_cast_right.is_colliding():
-		direction = -1
-		slime.flip_h = true
+	if delay < 0.5:
+		delay += delta
+	else:
+		if not body.is_on_floor():
+			body.velocity.y += gravity * delta
 		
-		
-	if ray_cast_left.is_colliding():
-		direction = 1
-		slime.flip_h = false
-		
+		if ray_cast_right.is_colliding():
+			direction = -1
+			slime.flip_h = true
+			
+			
+		if ray_cast_left.is_colliding():
+			direction = 1
+			slime.flip_h = false
+			
 
-	body.velocity.x = (SPEED * speedMult * delta * direction)
+		body.velocity.x = (SPEED * speedMult * delta * direction)
 
-	body.move_and_slide()
+		body.move_and_slide()
 
 
 func _on_ground_check_body_exited(body: Node2D) -> void:

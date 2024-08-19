@@ -52,7 +52,6 @@ func _physics_process(delta):
 	
 	if direction:
 		if is_on_floor():
-			print(max(abs(direction * SPEED), abs(velocity.x)) * direction)
 			velocity.x = direction * SPEED
 		else:
 			if abs(velocity.x + (direction * SPEED)*0.2) < SPEED:
@@ -78,7 +77,6 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_released("speedup_enemy"):
 		enemySpeedMultiplyer = 1
-		print("released")
 		changeSpeed = true
 	elif Input.is_action_just_released("slowdown_enemy"):
 		enemySpeedMultiplyer = 1
@@ -112,5 +110,5 @@ func _physics_process(delta):
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if (body.is_in_group("Platforms")) and addVelocityDebounce <= 0:
 		addVelocityDebounce += 10
-		print("adding velocity: " + str(body.velocity))
+		#print("adding velocity: " + str(body.velocity))
 		velocity += body.velocity
