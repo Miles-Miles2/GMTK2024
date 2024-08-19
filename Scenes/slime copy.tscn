@@ -36,7 +36,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_5e1bx"]
 radius = 1.0
 
-[node name="Slime" type="Node2D"]
+[node name="Slime" type="Node2D" groups=["enemy"]]
 script = ExtResource("1_bqwkd")
 
 [node name="enemyBody2D" type="CharacterBody2D" parent="."]
