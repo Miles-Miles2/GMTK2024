@@ -14,18 +14,9 @@ var SPEED = 4000
 @export var speedMult: float = 1
 
 
-@onready var timer = $Timer
 
-var start_move = false
 var direction = 1
 
-func _ready():
-	timer.start()
-	#slime.play("idle")
-	
-func _on_timer_timeout():
-	#slime.play("idle")
-	start_move = true
 	
 func _process(delta):
 	
@@ -41,13 +32,13 @@ func _process(delta):
 		direction = 1
 		slime.flip_h = false
 		
-	if start_move:
 
-		body.velocity.x = (SPEED * speedMult * delta * direction)
+	body.velocity.x = (SPEED * speedMult * delta * direction)
 
 	body.move_and_slide()
 
 
 func _on_ground_check_body_exited(body: Node2D) -> void:
 	if (body.is_in_group("ground")) and speedMult <= 1:
+		slime.flip_h = not(slime.flip_h)
 		direction *= -1
