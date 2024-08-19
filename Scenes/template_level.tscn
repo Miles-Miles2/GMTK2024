@@ -51,7 +51,6 @@ texture = ExtResource("6_gxwe3")
 
 [node name="Platform" parent="." groups=["Platforms"] instance=ExtResource("7_vrq34")]
 position = Vector2(59, -21)
-sync_to_physics = false
 
 [node name="killzone" parent="." instance=ExtResource("8_4smbe")]
 

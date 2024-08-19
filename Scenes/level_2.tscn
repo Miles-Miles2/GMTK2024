@@ -50,7 +50,6 @@ texture = ExtResource("6_sdyxo")
 
 [node name="Platform" parent="." groups=["Platforms"] instance=ExtResource("7_82weu")]
 position = Vector2(58, -9)
-sync_to_physics = false
 script = ExtResource("8_hk6r5")
 y_min = -40.0
 y_max = 0.0

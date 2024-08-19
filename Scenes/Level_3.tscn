@@ -69,7 +69,6 @@ shape = SubResource("WorldBoundaryShape2D_dgbcf")
 
 [node name="Platform" parent="Platforms" groups=["Platforms"] instance=ExtResource("7_3p58y")]
 position = Vector2(279, -21)
-sync_to_physics = false
 
 [node name="Slime" parent="." instance=ExtResource("8_8gndk")]
 position = Vector2(64, 4)
