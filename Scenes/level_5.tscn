@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://db4h8hepgkl2i"]
+
+[ext_resource type="Script" path="res://Scripts/CameraMove.gd" id="1_17t8r"]
+[ext_resource type="Texture2D" uid="uid://cwy37t7cx65oh" path="res://Assets/BG_0.png" id="2_0vu6e"]
+[ext_resource type="Texture2D" uid="uid://bwykwqcq1n32o" path="res://Assets/BG_1.png" id="3_ce575"]
+
+[node name="level_5" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-1, 0)
+zoom = Vector2(3.4, 3.4)
+limit_left = -100
+limit_top = -90
+limit_right = 550
+limit_bottom = 100
+position_smoothing_speed = 1.0
+script = ExtResource("1_17t8r")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Camera2D"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_offset = Vector2(100, 50)
+motion_mirroring = Vector2(440, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer"]
+position = Vector2(50, 0)
+texture = ExtResource("2_0vu6e")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_offset = Vector2(100, 75)
+motion_mirroring = Vector2(440, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(50, 0)
+texture = ExtResource("3_ce575")

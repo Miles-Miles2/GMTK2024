@@ -4,6 +4,7 @@ extends Node2D
 @onready var ray_cast_left = $enemyBody2D/RayCastLeft
 @onready var slime = $enemyBody2D/AnimatedSprite2D
 @onready var body = $enemyBody2D
+@onready var footsteps = $footsteps
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 #signal animation_done
@@ -36,6 +37,14 @@ func _process(delta):
 			
 
 		body.velocity.x = (SPEED * speedMult * delta * direction)
+		
+		if speedMult > 1:
+			footsteps.pitch_scale = 1.7
+		elif speedMult < 1:
+			footsteps.pitch_scale = .8
+		else:
+			footsteps.pitch_scale = 1
+		
 
 		body.move_and_slide()
 
