@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 130.0
+const SPEED = 90.0
 const JUMP_VELOCITY = -300.0
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var timer = $Timer
@@ -54,14 +54,16 @@ func _physics_process(delta):
 		if is_on_floor():
 			velocity.x = direction * SPEED
 		else:
-			if abs(velocity.x + (direction * SPEED)*0.2) < SPEED:
-				velocity.x += (direction * SPEED)*0.2
-			elif abs(velocity.x	 + (direction * SPEED)*0.2) < abs(velocity.x):
-				velocity.x += (direction * SPEED)*0.2
+			if abs(velocity.x + ((direction * SPEED)*0.01)) < SPEED:
+				velocity.x += direction * SPEED * 0.1 #min((direction * SPEED)*0.01, direction*SPEED - velocity.x)
+			elif abs(velocity.x	 + (direction * SPEED)*0.01) < abs(velocity.x):
+				velocity.x += (direction * SPEED)*0.01
 		
 	else:
 		if is_on_floor():
 			velocity.x = 0
+		else:
+			velocity.x *= 0.95
 
 	move_and_slide()
 	

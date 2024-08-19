@@ -107,9 +107,9 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_sc5cu"]
 radius = 1.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
-collision_layer = 2
+collision_layer = 3
 script = ExtResource("1_4gsat")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

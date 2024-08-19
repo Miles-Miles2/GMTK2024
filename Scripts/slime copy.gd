@@ -10,7 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 #signal animation_done
 
 
-var SPEED = 1500
+@export var SPEED = 1500
 
 @export var speedMult: float = 1
 
@@ -53,7 +53,7 @@ func _process(delta):
 		body.move_and_slide()
 
 
-func _on_ground_check_body_exited(body: Node2D) -> void:
-	if (body.is_in_group("ground")) and speedMult <= 1:
+func _on_ground_check_body_exited(collidedBody: Node2D) -> void:
+	if (collidedBody.is_in_group("ground")) and speedMult <= 1:
 		slime.flip_h = not(slime.flip_h)
 		direction *= -1

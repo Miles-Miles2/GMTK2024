@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c44y78f8gw8m8"]
+[gd_scene load_steps=4 format=3 uid="uid://c44y78f8gw8m8"]
 
+[ext_resource type="Script" path="res://Scripts/exit_door.gd" id="1_21kud"]
 [ext_resource type="Texture2D" uid="uid://cg40v0qsasp1a" path="res://Tileset/tilemap_packed.png" id="1_yuege"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fc3cj"]
-size = Vector2(10, 1)
+size = Vector2(16, 8)
 
 [node name="exit_door" type="Area2D"]
+script = ExtResource("1_21kud")
+nextScene = "res://Scenes/level_6.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_yuege")
@@ -13,5 +16,7 @@ region_enabled = true
 region_rect = Rect2(104, 48, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7.5)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_fc3cj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
