@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c44y78f8gw8m8"]
+
+[ext_resource type="Texture2D" uid="uid://cg40v0qsasp1a" path="res://Tileset/tilemap_packed.png" id="1_yuege"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc3cj"]
+size = Vector2(10, 1)
+
+[node name="exit_door" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yuege")
+region_enabled = true
+region_rect = Rect2(104, 48, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_fc3cj")
