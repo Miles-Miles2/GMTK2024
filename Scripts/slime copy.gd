@@ -42,6 +42,5 @@ func _process(delta):
 
 func _on_ground_check_body_exited(body: Node2D) -> void:
 	if (body.is_in_group("ground")) and speedMult <= 1:
-		print("flipping")
 		slime.flip_h = not(slime.flip_h)
 		direction *= -1
