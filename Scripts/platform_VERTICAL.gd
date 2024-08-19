@@ -7,24 +7,28 @@ var direction = 1
 var count = 0
 var max_limit = 0
 var min_limit = 0
+
+@export var y_min: float
+@export var y_max: float
+
 @export var platSpeedMult = 1
 @export var velocity: Vector2
 
-func _ready():
-	var max_lim = position.x + 80
-	var min_lim = position.x - 8
-	max_limit = max_lim
-	min_limit = min_lim
-	print(max_lim)
-	print(min_lim)
+@onready var y_min_absolute = position.y + y_min
+@onready var y_max_absolute = position.y + y_max
+	
+	
 
 func _physics_process(delta):
-	if position.x > max_limit:
+	if position.y <= y_min_absolute:
 		direction *= -1
-	if position.x < min_limit:
+		position.y = y_min_absolute
+	if position.y >= y_max_absolute:
 		direction *= -1
+		position.y = y_max_absolute
 		
-	velocity = Vector2(speed * delta * direction * platSpeedMult, 0)
+	velocity = Vector2(0, speed * delta * direction * platSpeedMult)
+	
 	move_and_collide(velocity)
 
 	if platSpeedMult == 1:
