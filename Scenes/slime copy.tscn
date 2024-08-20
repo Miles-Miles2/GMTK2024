@@ -82,7 +82,7 @@ shape = SubResource("CircleShape2D_5e1bx")
 
 [node name="footsteps" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_bj711")
-volume_db = -2.0
+volume_db = -10.0
 autoplay = true
 bus = &"SFX"
 

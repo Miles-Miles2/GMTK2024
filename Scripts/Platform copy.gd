@@ -2,6 +2,7 @@ extends AnimatableBody2D
 
 @onready var platSFX = $AudioStreamPlayer2D
 
+@export var lvl_5_fix: float = 1
 @export var speed = 60
 var direction = -1
 var count = 0
@@ -33,7 +34,10 @@ func _physics_process(delta):
 		if position.x < min_limit:
 			direction *= -1
 			
-		velocity = Vector2(speed * delta * direction * platSpeedMult, 0)
+		if platSpeedMult == 1 || platSpeedMult == 2:
+			velocity = Vector2(speed * delta * direction * platSpeedMult, 0)
+		else:
+			velocity = Vector2(speed * delta * direction * platSpeedMult * lvl_5_fix, 0)
 		move_and_collide(velocity)
 
 		if platSpeedMult == 1:

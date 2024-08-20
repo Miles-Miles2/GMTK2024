@@ -19,7 +19,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction = 1
 var delay = 0
 	
-func _process(delta):
+func _physics_process(delta):
 	if delay < 0.5:
 		delay += delta
 	else:

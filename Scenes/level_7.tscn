@@ -11,7 +11,7 @@
 [ext_resource type="Shader" path="res://Scripts/vignette.gdshader" id="8_yxp0i"]
 [ext_resource type="Shader" path="res://Scripts/fisheye.gdshader" id="9_ah2ip"]
 [ext_resource type="Script" path="res://keyManager.gd" id="9_dsmss"]
-[ext_resource type="PackedScene" uid="uid://bl4oetftuyfvk" path="res://Scenes/key.tscn" id="9_l20no"]
+[ext_resource type="PackedScene" uid="uid://ct6r7gv185aje" path="res://Scenes/key.tscn" id="9_l20no"]
 [ext_resource type="Script" path="res://Scripts/platform_VERTICAL.gd" id="11_513ms"]
 [ext_resource type="AudioStream" uid="uid://bvf0pus2b68ac" path="res://Audio/SFX/Coveyer Belt SFX.mp3" id="12_jmgam"]
 [ext_resource type="Texture2D" uid="uid://cg40v0qsasp1a" path="res://Tileset/tilemap_packed.png" id="12_ybbtu"]
