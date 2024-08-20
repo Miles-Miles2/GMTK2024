@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://da4k8vcw0wlw3"]
+[gd_scene load_steps=12 format=3 uid="uid://da4k8vcw0wlw3"]
 
 [ext_resource type="FontFile" uid="uid://c2ow1526vefm5" path="res://Fonts/8-bit-hud.ttf" id="1_8xsrk"]
 [ext_resource type="Script" path="res://Scripts/Button.gd" id="2_dqq12"]
 [ext_resource type="Texture2D" uid="uid://cwy37t7cx65oh" path="res://Assets/BG_0.png" id="3_8bymc"]
+[ext_resource type="AudioStream" uid="uid://nr1fhkl8j718" path="res://Audio/SFX/retro-game-coin-pickup-jam-fx-1-00-03.mp3" id="3_tvewc"]
 [ext_resource type="Texture2D" uid="uid://bwykwqcq1n32o" path="res://Assets/BG_1.png" id="4_do6vl"]
 
 [sub_resource type="Animation" id="Animation_inkh2"]
@@ -96,6 +97,13 @@ theme_override_font_sizes/font_size = 16
 text = "Start"
 script = ExtResource("2_dqq12")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Button"]
+stream = ExtResource("3_tvewc")
+bus = &"SFX"
+
+[node name="Timer" type="Timer" parent="Button"]
+wait_time = 0.5
+
 [node name="Label" type="Label" parent="."]
 z_index = 1
 offset_left = -408.0
@@ -142,3 +150,4 @@ libraries = {
 autoplay = "bgfg_move"
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="timeout" from="Button/Timer" to="Button" method="_on_timer_timeout"]
