@@ -95,6 +95,7 @@ region_rect = Rect2(104, 48, 16, 16)
 
 [node name="exit_door2" parent="." instance=ExtResource("8_qlpie")]
 position = Vector2(464, 8)
+nextScene = "res://Scenes/level_7.tscn"
 
 [node name="complete" type="AudioStreamPlayer2D" parent="exit_door2"]
 stream = ExtResource("11_aeanp")
