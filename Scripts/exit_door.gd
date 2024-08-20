@@ -13,7 +13,9 @@ func _ready():
 
 
 func _on_body_entered(body):
+	print("entered door")
 	if %keyManager:
+		print("key exists")
 		if %keyManager.hasKey:
 			print("entered door")
 			if body.is_in_group("player"):
