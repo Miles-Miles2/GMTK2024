@@ -31,8 +31,10 @@ func _physics_process(delta):
 	else:
 		if position.x > max_limit:
 			direction *= -1
+			position.x = max_limit
 		if position.x < min_limit:
 			direction *= -1
+			position.x = min_limit
 			
 		if platSpeedMult == 1 || platSpeedMult == 2:
 			velocity = Vector2(speed * delta * direction * platSpeedMult, 0)
