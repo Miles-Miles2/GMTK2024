@@ -12,7 +12,7 @@
 [ext_resource type="Shader" path="res://Scripts/vignette.gdshader" id="8_yxp0i"]
 [ext_resource type="Shader" path="res://Scripts/fisheye.gdshader" id="9_ah2ip"]
 [ext_resource type="Script" path="res://keyManager.gd" id="9_dsmss"]
-[ext_resource type="PackedScene" uid="uid://bl4oetftuyfvk" path="res://Scenes/key.tscn" id="9_l20no"]
+[ext_resource type="PackedScene" uid="uid://ct6r7gv185aje" path="res://Scenes/key.tscn" id="9_l20no"]
 [ext_resource type="Texture2D" uid="uid://cfcsl548u2t20" path="res://Assets/fog.png" id="9_yv07p"]
 [ext_resource type="Script" path="res://Scripts/platform_VERTICAL.gd" id="11_513ms"]
 [ext_resource type="AudioStream" uid="uid://bvf0pus2b68ac" path="res://Audio/SFX/Coveyer Belt SFX.mp3" id="12_jmgam"]
@@ -228,5 +228,11 @@ position = Vector2(117, 1)
 
 [node name="Key" parent="." instance=ExtResource("9_l20no")]
 position = Vector2(180, -116)
+
+[node name="TilemapPacked" type="Sprite2D" parent="."]
+position = Vector2(192, -192)
+texture = ExtResource("12_ybbtu")
+region_enabled = true
+region_rect = Rect2(88, 48, 16, 16.0416)
 
 [connection signal="timeout" from="exit_door/Timer" to="exit_door" method="_on_timer_timeout"]

@@ -1,7 +1,10 @@
 extends Area2D
+
+
 @onready var complete = $complete
 @onready var timer = $Timer
 @onready var player = "test"
+@onready var locked_door = $"../TilemapPacked"
 
 @export var nextScene: String
 
@@ -14,6 +17,7 @@ func _on_body_entered(body):
 		if %keyManager.hasKey:
 			print("entered door")
 			if body.is_in_group("player"):
+				locked_door.visible = false
 				player.set_physics_process(false)
 				player.get_node("AnimatedSprite2D").play("jump")
 				complete.play()

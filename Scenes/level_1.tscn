@@ -39,6 +39,7 @@ layer_0/tile_data = PackedInt32Array(65537, 262144, 2, 65538, 262144, 2, 65539, 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(745, 535)
 zoom = Vector2(4, 4)
+limit_bottom = 600
 position_smoothing_speed = 1.0
 script = ExtResource("4_rpied")
 player = NodePath("../Player")
