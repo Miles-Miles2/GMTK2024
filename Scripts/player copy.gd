@@ -20,14 +20,21 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var fisheye = get_viewport().get_camera_2d().find_child("fisheye").material
 var targetFisheye: float = 0.01
 
-
+var previouslyInAir = true
 
 
 func _physics_process(delta):
 	# Add the gravity.
 	addVelocityDebounce = max(0, addVelocityDebounce - 1)
+	
+	if is_on_floor() and previouslyInAir:
+		$CPUParticles2D.emitting = true
+		previouslyInAir = false
+	
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		previouslyInAir = true
+	
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -72,6 +79,11 @@ func _physics_process(delta):
 			velocity.x *= 0.95
 
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("reset"):
+		Engine.time_scale = 1.0 
+		get_tree().reload_current_scene()
+	
 	
 	#handle speedup/slowdonw
 	var changeSpeed: bool = false
