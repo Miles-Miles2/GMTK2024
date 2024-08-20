@@ -66,7 +66,7 @@ SPEED = 3000
 position = Vector2(413, 20)
 SPEED = 3000
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+[node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(20, -40)
 zoom = Vector2(4, 4)
 limit_left = -35
@@ -75,7 +75,6 @@ limit_right = 520
 limit_bottom = 55
 position_smoothing_speed = 1.0
 script = ExtResource("4_ajsut")
-player = NodePath("../Player")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Camera2D"]
 

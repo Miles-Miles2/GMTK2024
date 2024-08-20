@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8lpkgjwy4o8y"]
+
+[ext_resource type="Script" path="res://Scripts/Platform copy.gd" id="1_5gndg"]
+[ext_resource type="Texture2D" uid="uid://cg40v0qsasp1a" path="res://Tileset/tilemap_packed.png" id="2_18nrd"]
+[ext_resource type="AudioStream" uid="uid://bvf0pus2b68ac" path="res://Audio/SFX/Coveyer Belt SFX.mp3" id="3_h8l5p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2g6q"]
+size = Vector2(30, 8)
+
+[node name="Platform" type="AnimatableBody2D"]
+sync_to_physics = false
+script = ExtResource("1_5gndg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3.57628e-07, 0)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_18nrd")
+region_enabled = true
+region_rect = Rect2(24, 24, 24, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g2g6q")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_h8l5p")
+volume_db = -20.0
+pitch_scale = 0.9
+autoplay = true
+bus = &"SFX"

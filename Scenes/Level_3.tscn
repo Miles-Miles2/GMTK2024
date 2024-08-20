@@ -44,7 +44,7 @@ layer_1/name = "back"
 layer_1/z_index = -1
 layer_1/tile_data = PackedInt32Array(15, 65536, 4, -65521, 65536, 2, -131057, 65536, 0, 60, 65536, 4, -65476, 65536, 2, -131012, 65536, 0, -131054, 65536, 0, -65518, 65536, 2, 18, 65536, 4)
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+[node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1, 0)
 zoom = Vector2(3.4, 3.4)
 limit_left = -100
@@ -53,7 +53,6 @@ limit_right = 550
 limit_bottom = 100
 position_smoothing_speed = 1.0
 script = ExtResource("4_ulr16")
-player = NodePath("../Player")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Camera2D"]
 
@@ -118,8 +117,7 @@ shape = SubResource("WorldBoundaryShape2D_dgbcf")
 
 [node name="Platform" parent="Platforms" groups=["Platforms"] instance=ExtResource("7_3p58y")]
 position = Vector2(242, -21)
-x_min = -10.0
-x_max = 87.0
+x_max = 200.0
 
 [node name="Slime" parent="." instance=ExtResource("8_8gndk")]
 position = Vector2(64, 4)

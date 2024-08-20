@@ -47,7 +47,7 @@ layer_0/tile_data = PackedInt32Array(65536, 262144, 2, 65537, 262144, 2, 65538, 
 layer_1/name = "back"
 layer_1/tile_data = PackedInt32Array(-2686940, 65536, 0, -2621404, 65536, 2, -2555868, 65536, 4, -2686945, 65536, 0, -2621409, 65536, 2, -2555873, 65536, 4, -917481, 65536, 4, -917486, 65536, 4, -983022, 65536, 2, -983017, 65536, 2, -1048558, 65536, 0, -1048553, 65536, 0, -131065, 65536, 0, -131059, 65536, 0, -65529, 65536, 2, -65523, 65536, 2, 7, 65536, 4, 13, 65536, 4)
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+[node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1, 0)
 zoom = Vector2(3.4, 3.4)
 limit_left = -100
@@ -56,7 +56,6 @@ limit_right = 550
 limit_bottom = 100
 position_smoothing_speed = 1.0
 script = ExtResource("1_17t8r")
-player = NodePath("../Player")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Camera2D"]
 
@@ -132,25 +131,22 @@ y_max = 0.0
 
 [node name="horizontal" parent="Platforms" groups=["Platforms"] instance=ExtResource("5_nsc58")]
 position = Vector2(12, -101)
-x_max = 100.0
+x_max = 90.0
 
 [node name="horizontal2" parent="Platforms" groups=["Platforms"] instance=ExtResource("5_nsc58")]
 position = Vector2(204, -133)
-lvl_5_fix = 0.5
 speed = 150
 x_min = -10.0
 x_max = 10.0
 
 [node name="horizontal3" parent="Platforms" groups=["Platforms"] instance=ExtResource("5_nsc58")]
 position = Vector2(163, -166)
-lvl_5_fix = 0.5
 speed = 150
 x_min = -10.0
 x_max = 10.0
 
 [node name="horizontal4" parent="Platforms" groups=["Platforms"] instance=ExtResource("5_nsc58")]
 position = Vector2(204, -203)
-lvl_5_fix = 0.5
 speed = 150
 x_min = -10.0
 x_max = 10.0
