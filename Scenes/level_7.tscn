@@ -127,7 +127,7 @@ texture = ExtResource("6_jdr5d")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
 motion_scale = Vector2(0.4, 0.4)
-motion_mirroring = Vector2(440, 100)
+motion_mirroring = Vector2(440, 150)
 script = ExtResource("8_o871g")
 speed = 8.0
 
