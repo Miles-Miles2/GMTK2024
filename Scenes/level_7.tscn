@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b7aytnckh26se"]
+[gd_scene load_steps=27 format=3 uid="uid://b7aytnckh26se"]
 
 [ext_resource type="PackedScene" uid="uid://dhgatk0xaee0v" path="res://Scenes/player.tscn" id="1_plmf8"]
 [ext_resource type="TileSet" uid="uid://cvybiv4kqocla" path="res://Tileset/pico8.tres" id="2_68nxh"]
@@ -8,10 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://bwykwqcq1n32o" path="res://Assets/BG_1.png" id="6_jdr5d"]
 [ext_resource type="PackedScene" uid="uid://c44y78f8gw8m8" path="res://Scenes/exit_door.tscn" id="8_mpncq"]
 [ext_resource type="AudioStream" uid="uid://d1eqxr63vwksx" path="res://Audio/SFX/Level_complete SFX.mp3" id="8_n0c0r"]
+[ext_resource type="Script" path="res://Scripts/scrollingFogParallax.gd" id="8_o871g"]
 [ext_resource type="Shader" path="res://Scripts/vignette.gdshader" id="8_yxp0i"]
 [ext_resource type="Shader" path="res://Scripts/fisheye.gdshader" id="9_ah2ip"]
 [ext_resource type="Script" path="res://keyManager.gd" id="9_dsmss"]
 [ext_resource type="PackedScene" uid="uid://bl4oetftuyfvk" path="res://Scenes/key.tscn" id="9_l20no"]
+[ext_resource type="Texture2D" uid="uid://cfcsl548u2t20" path="res://Assets/fog.png" id="9_yv07p"]
 [ext_resource type="Script" path="res://Scripts/platform_VERTICAL.gd" id="11_513ms"]
 [ext_resource type="AudioStream" uid="uid://bvf0pus2b68ac" path="res://Audio/SFX/Coveyer Belt SFX.mp3" id="12_jmgam"]
 [ext_resource type="Texture2D" uid="uid://cg40v0qsasp1a" path="res://Tileset/tilemap_packed.png" id="12_ybbtu"]
@@ -122,6 +124,16 @@ motion_mirroring = Vector2(440, 240)
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer2"]
 texture = ExtResource("6_jdr5d")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(440, 100)
+script = ExtResource("8_o871g")
+speed = 8.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(50, 0)
+texture = ExtResource("9_yv07p")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 

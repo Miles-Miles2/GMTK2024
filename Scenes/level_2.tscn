@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://cd8v7pne408sd"]
+[gd_scene load_steps=17 format=3 uid="uid://cd8v7pne408sd"]
 
 [ext_resource type="PackedScene" uid="uid://dhgatk0xaee0v" path="res://Scenes/player.tscn" id="1_q2gf5"]
 [ext_resource type="TileSet" uid="uid://cvybiv4kqocla" path="res://Tileset/pico8.tres" id="2_im67o"]
 [ext_resource type="Script" path="res://Scripts/CameraMove.gd" id="4_lvhoc"]
 [ext_resource type="Texture2D" uid="uid://cwy37t7cx65oh" path="res://Assets/BG_0.png" id="5_14nse"]
 [ext_resource type="Shader" path="res://Scripts/vignette.gdshader" id="6_37c5p"]
+[ext_resource type="Script" path="res://Scripts/scrollingFogParallax.gd" id="6_iac2j"]
 [ext_resource type="Texture2D" uid="uid://bwykwqcq1n32o" path="res://Assets/BG_1.png" id="6_sdyxo"]
+[ext_resource type="Texture2D" uid="uid://cfcsl548u2t20" path="res://Assets/fog.png" id="7_2stl8"]
 [ext_resource type="PackedScene" uid="uid://dbtjv0mgurp8l" path="res://Scenes/Platform copy.tscn" id="7_82weu"]
 [ext_resource type="Shader" path="res://Scripts/fisheye.gdshader" id="7_hsmm4"]
 [ext_resource type="Script" path="res://Scripts/platform_VERTICAL.gd" id="8_hk6r5"]
@@ -59,6 +61,16 @@ motion_mirroring = Vector2(440, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer2"]
 texture = ExtResource("6_sdyxo")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(440, 100)
+script = ExtResource("6_iac2j")
+speed = 8.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(50, 0)
+texture = ExtResource("7_2stl8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 
