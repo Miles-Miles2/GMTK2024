@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://6khty7xg0vvp"]
+[gd_scene load_steps=17 format=3 uid="uid://6khty7xg0vvp"]
 
 [ext_resource type="PackedScene" uid="uid://dhgatk0xaee0v" path="res://Scenes/player.tscn" id="1_4pn80"]
 [ext_resource type="TileSet" uid="uid://cvybiv4kqocla" path="res://Tileset/pico8.tres" id="2_5u3e6"]
@@ -6,11 +6,23 @@
 [ext_resource type="Script" path="res://Scripts/CameraMove.gd" id="4_2lv4c"]
 [ext_resource type="Texture2D" uid="uid://cwy37t7cx65oh" path="res://Assets/BG_0.png" id="5_u82ac"]
 [ext_resource type="Texture2D" uid="uid://bwykwqcq1n32o" path="res://Assets/BG_1.png" id="6_viov1"]
+[ext_resource type="Shader" path="res://Scripts/vignette.gdshader" id="7_8hc8o"]
 [ext_resource type="PackedScene" uid="uid://dbtjv0mgurp8l" path="res://Scenes/Platform copy.tscn" id="7_qmgj3"]
 [ext_resource type="PackedScene" uid="uid://bovq5nweho4yv" path="res://Scenes/killzone copy.tscn" id="8_2jxm1"]
+[ext_resource type="Shader" path="res://Scripts/fisheye.gdshader" id="8_i6pko"]
 [ext_resource type="Texture2D" uid="uid://cg40v0qsasp1a" path="res://Tileset/tilemap_packed.png" id="9_k07rw"]
 [ext_resource type="PackedScene" uid="uid://c44y78f8gw8m8" path="res://Scenes/exit_door.tscn" id="9_u3l80"]
 [ext_resource type="AudioStream" uid="uid://d1eqxr63vwksx" path="res://Audio/SFX/Level_complete SFX.mp3" id="10_mmpyt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ga6sy"]
+shader = ExtResource("7_8hc8o")
+shader_parameter/alpha = 0.3
+shader_parameter/inner_radius = 0.4
+shader_parameter/outer_radius = 1.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bs1gf"]
+shader = ExtResource("8_i6pko")
+shader_parameter/effect_amount = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uq1ah"]
 size = Vector2(88, 6)
@@ -59,6 +71,24 @@ motion_mirroring = Vector2(440, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer2"]
 texture = ExtResource("6_viov1")
+
+[node name="vignette" type="ColorRect" parent="Camera2D"]
+z_index = 100
+material = SubResource("ShaderMaterial_ga6sy")
+offset_left = -150.0
+offset_top = -101.0
+offset_right = 151.0
+offset_bottom = 74.0
+color = Color(1, 1, 1, 0.337255)
+
+[node name="fisheye" type="ColorRect" parent="Camera2D"]
+z_index = 100
+material = SubResource("ShaderMaterial_bs1gf")
+offset_left = -150.0
+offset_top = -101.0
+offset_right = 151.0
+offset_bottom = 74.0
+color = Color(1, 1, 1, 0.337255)
 
 [node name="Platform" parent="." groups=["Platforms", "ground"] instance=ExtResource("7_qmgj3")]
 position = Vector2(59, -21)

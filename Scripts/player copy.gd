@@ -16,6 +16,12 @@ var addVelocityDebounce: int = 0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+#shader stuff
+@onready var fisheye = get_viewport().get_camera_2d().find_child("fisheye").material
+var targetFisheye: float = 0.01
+
+
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -73,16 +79,20 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("speedup_enemy"):
 		enemySpeedMultiplyer = 2.5
 		changeSpeed = true
+		targetFisheye += 0.4
 	elif Input.is_action_just_pressed("slowdown_enemy"):
 		enemySpeedMultiplyer = 0.35
 		changeSpeed = true
+		targetFisheye += -0.05
 	
 	if Input.is_action_just_released("speedup_enemy"):
 		enemySpeedMultiplyer = 1
 		changeSpeed = true
+		targetFisheye = 0.01
 	elif Input.is_action_just_released("slowdown_enemy"):
 		enemySpeedMultiplyer = 1
 		changeSpeed = true
+		targetFisheye = 0.01
 	
 	if changeSpeed:
 		for node in get_tree().get_nodes_in_group("enemy"):
@@ -92,21 +102,26 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("speed_plat"):
 		platformSpeedMultiplyer = 2
 		changeSpeed = true
+		targetFisheye += 0.4
 	elif Input.is_action_just_pressed("slow_plat"):
 		platformSpeedMultiplyer = 0.5
 		changeSpeed = true
+		targetFisheye += -0.05
 	
 	if Input.is_action_just_released("speed_plat"):
 		platformSpeedMultiplyer = 1
 		changeSpeed = true
+		targetFisheye = 0.01
 	elif Input.is_action_just_released("slow_plat"):
 		platformSpeedMultiplyer = 1
 		changeSpeed = true
+		targetFisheye = 0.01
 	
 	if changeSpeed:
 		for node in get_tree().get_nodes_in_group("Platforms"):
 			node.platSpeedMult = platformSpeedMultiplyer
-
+	
+	fisheye.set_shader_parameter("effect_amount", lerp(fisheye.get_shader_parameter("effect_amount"), targetFisheye, 0.2))
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:

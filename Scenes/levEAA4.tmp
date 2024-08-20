@@ -30,7 +30,7 @@ shader_parameter/outer_radius = 1.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6sgvc"]
 shader = ExtResource("9_ah2ip")
-shader_parameter/effect_amount = 1.0
+shader_parameter/effect_amount = 0.0100001
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbag8"]
 size = Vector2(104, 16)
@@ -119,9 +119,18 @@ motion_mirroring = Vector2(440, 240)
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer2"]
 texture = ExtResource("6_jdr5d")
 
-[node name="vignette" type="ColorRect" parent="Camera2D"]
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
 z_index = 100
 material = SubResource("ShaderMaterial_yqenq")
+offset_left = -149.0
+offset_top = -87.0
+offset_right = 152.0
+offset_bottom = 88.0
+color = Color(1, 1, 1, 0.337255)
+
+[node name="ColorRect2" type="ColorRect" parent="Camera2D"]
+z_index = 100
+material = SubResource("ShaderMaterial_6sgvc")
 offset_left = -149.0
 offset_top = -87.0
 offset_right = 152.0
