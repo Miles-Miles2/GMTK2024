@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://0mypdtasedgr"]
+[gd_scene load_steps=18 format=3 uid="uid://0mypdtasedgr"]
 
 [ext_resource type="PackedScene" uid="uid://dhgatk0xaee0v" path="res://Scenes/player.tscn" id="1_mux88"]
 [ext_resource type="TileSet" uid="uid://cvybiv4kqocla" path="res://Tileset/pico8.tres" id="2_2knaw"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cwy37t7cx65oh" path="res://Assets/BG_0.png" id="5_bsgrd"]
 [ext_resource type="Texture2D" uid="uid://bwykwqcq1n32o" path="res://Assets/BG_1.png" id="6_2hefy"]
 [ext_resource type="Shader" path="res://Scripts/vignette.gdshader" id="7_i53lx"]
+[ext_resource type="Script" path="res://Scripts/scrollingFogParallax.gd" id="7_nvgdt"]
 [ext_resource type="Shader" path="res://Scripts/fisheye.gdshader" id="8_2bu47"]
+[ext_resource type="Texture2D" uid="uid://cfcsl548u2t20" path="res://Assets/fog.png" id="8_fuvp3"]
 [ext_resource type="PackedScene" uid="uid://bovq5nweho4yv" path="res://Scenes/killzone copy.tscn" id="8_gqt2y"]
 [ext_resource type="PackedScene" uid="uid://c44y78f8gw8m8" path="res://Scenes/exit_door.tscn" id="8_qlpie"]
 [ext_resource type="Texture2D" uid="uid://cg40v0qsasp1a" path="res://Tileset/tilemap_packed.png" id="9_4k0bx"]
@@ -92,6 +94,16 @@ motion_mirroring = Vector2(440, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer2"]
 texture = ExtResource("6_2hefy")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(440, 100)
+script = ExtResource("7_nvgdt")
+speed = 8.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(50, 0)
+texture = ExtResource("8_fuvp3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 

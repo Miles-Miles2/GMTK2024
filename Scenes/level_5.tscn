@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://db4h8hepgkl2i"]
+[gd_scene load_steps=20 format=3 uid="uid://db4h8hepgkl2i"]
 
 [ext_resource type="Script" path="res://Scripts/CameraMove.gd" id="1_17t8r"]
 [ext_resource type="TileSet" uid="uid://cvybiv4kqocla" path="res://Tileset/pico8.tres" id="1_bvt1c"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cwy37t7cx65oh" path="res://Assets/BG_0.png" id="2_0vu6e"]
 [ext_resource type="Texture2D" uid="uid://bwykwqcq1n32o" path="res://Assets/BG_1.png" id="3_ce575"]
 [ext_resource type="PackedScene" uid="uid://dbtjv0mgurp8l" path="res://Scenes/Platform copy.tscn" id="5_nsc58"]
+[ext_resource type="Texture2D" uid="uid://cfcsl548u2t20" path="res://Assets/fog.png" id="6_7prmw"]
+[ext_resource type="Script" path="res://Scripts/scrollingFogParallax.gd" id="6_8gmou"]
 [ext_resource type="Shader" path="res://Scripts/vignette.gdshader" id="6_j207g"]
 [ext_resource type="Script" path="res://Scripts/platform_VERTICAL.gd" id="6_yuvtf"]
 [ext_resource type="Texture2D" uid="uid://cg40v0qsasp1a" path="res://Tileset/tilemap_packed.png" id="7_7a2gc"]
@@ -60,7 +62,7 @@ player = NodePath("../Player")
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
 motion_scale = Vector2(0.1, 0.1)
 motion_offset = Vector2(100, 50)
-motion_mirroring = Vector2(440, 0)
+motion_mirroring = Vector2(440, 240)
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer"]
 position = Vector2(50, 0)
@@ -69,11 +71,31 @@ texture = ExtResource("2_0vu6e")
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
 motion_scale = Vector2(0.2, 0.2)
 motion_offset = Vector2(100, 75)
-motion_mirroring = Vector2(440, 0)
+motion_mirroring = Vector2(440, 240)
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer2"]
 position = Vector2(50, 0)
 texture = ExtResource("3_ce575")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(440, 100)
+script = ExtResource("6_8gmou")
+speed = 8.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(50, 0)
+texture = ExtResource("6_7prmw")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(440, 100)
+script = ExtResource("6_8gmou")
+speed = 8.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer4"]
+position = Vector2(50, 0)
+texture = ExtResource("6_7prmw")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 
