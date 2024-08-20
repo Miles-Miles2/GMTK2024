@@ -10,13 +10,20 @@ func _ready():
 
 
 func _on_body_entered(body):
-	if %keyManager.hasKey:
-		print("entered door")
+	if %keyManager:
+		if %keyManager.hasKey:
+			print("entered door")
+			if body.is_in_group("player"):
+				player.set_physics_process(false)
+				player.get_node("AnimatedSprite2D").play("jump")
+				complete.play()
+				timer.start()
+	else:
 		if body.is_in_group("player"):
-			player.set_physics_process(false)
-			player.get_node("AnimatedSprite2D").play("jump")
-			complete.play()
-			timer.start()
+				player.set_physics_process(false)
+				player.get_node("AnimatedSprite2D").play("jump")
+				complete.play()
+				timer.start()
 	
 func _on_timer_timeout():
 	get_tree().change_scene_to_file(nextScene)

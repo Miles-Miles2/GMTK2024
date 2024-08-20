@@ -6,10 +6,11 @@ extends Node
 
 func _on_body_entered(body):
 	print("You died!")
-	death.play()
-	Engine.time_scale = 0.5
-	body.get_node("CollisionShape2D").queue_free()
-	timer.start()
+	if (body.is_in_group("player")):
+		death.play()
+		Engine.time_scale = 0.5
+		body.get_node("CollisionShape2D").queue_free()
+		timer.start()
 	
 
 
