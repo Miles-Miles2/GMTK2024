@@ -116,7 +116,6 @@ nextScene = "res://Scenes/level_8.tscn"
 
 [node name="complete" type="AudioStreamPlayer2D" parent="exit_door"]
 stream = ExtResource("9_6g4gy")
-bus = &"SFX"
 
 [node name="Timer" type="Timer" parent="exit_door"]
 

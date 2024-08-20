@@ -22,10 +22,10 @@ var min_limit = 0
 func _physics_process(delta):
 	if position.y <= y_min_absolute:
 		direction *= -1
-		position.y = y_min_absolute
+		position.y = y_min_absolute+1
 	if position.y >= y_max_absolute:
 		direction *= -1
-		position.y = y_max_absolute
+		position.y = y_max_absolute-1
 		
 	velocity = Vector2(0, speed * delta * direction * platSpeedMult)
 	

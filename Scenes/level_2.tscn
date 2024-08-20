@@ -108,8 +108,8 @@ offset_bottom = 425.0
 scale = Vector2(0.08, 0.08)
 theme_override_fonts/font = ExtResource("10_hjw4o")
 theme_override_font_sizes/font_size = 50
-text = "Press \"o\" to speedup platforms
-Press \"l\" to slow down platforms
+text = "Hold \"o\" to speedup platforms
+Hold \"l\" to slow down platforms
 You can use platforms to give
 yourself a boost. The faster the platforms,
 the bigger the boost"
@@ -134,7 +134,6 @@ nextScene = "res://Scenes/Level_3.tscn"
 
 [node name="complete" type="AudioStreamPlayer2D" parent="exit_door"]
 stream = ExtResource("10_qyjai")
-bus = &"SFX"
 
 [node name="Timer" type="Timer" parent="exit_door"]
 wait_time = 1.5
